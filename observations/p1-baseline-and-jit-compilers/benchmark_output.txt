@@ -1,0 +1,69 @@
+# JMH version: 1.37
+# VM version: JDK 24.0.2-internal, OpenJDK 64-Bit Server VM, 24.0.2-internal-adhoc.mpataki.jdk24u
+# VM invoker: /home/mpataki/projects/jdk24u/build/linux-x86_64-server-release/jdk/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.mpataki.Tensor4DBenchmark.accessTest
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Warmup Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/mpataki/projects/jmh/tensor.benchmark/target/benchmarks.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 140.104 ops/s
+# Warmup Iteration   2: 140.242 ops/s
+# Warmup Iteration   3: 140.198 ops/s
+# Warmup Iteration   4: 140.141 ops/s
+# Warmup Iteration   5: 139.711 ops/s
+Iteration   1: 139.656 ops/s
+Iteration   2: 139.656 ops/s
+Iteration   3: 139.573 ops/s
+Iteration   4: 139.637 ops/s
+Iteration   5: 139.710 ops/s
+
+# Run progress: 50.00% complete, ETA 00:01:40
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/mpataki/projects/jmh/tensor.benchmark/target/benchmarks.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 134.888 ops/s
+# Warmup Iteration   2: 135.329 ops/s
+# Warmup Iteration   3: 135.202 ops/s
+# Warmup Iteration   4: 135.041 ops/s
+# Warmup Iteration   5: 134.735 ops/s
+Iteration   1: 134.285 ops/s
+Iteration   2: 134.274 ops/s
+Iteration   3: 134.330 ops/s
+Iteration   4: 134.755 ops/s
+Iteration   5: 134.599 ops/s
+
+
+Result "com.mpataki.Tensor4DBenchmark.accessTest":
+  134.449 ±(99.9%) 0.834 ops/s [Average]
+  (min, avg, max) = (134.274, 134.449, 134.755), stdev = 0.217
+  CI (99.9%): [133.614, 135.283] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:21
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                      Mode  Cnt    Score   Error  Units
+Tensor4DBenchmark.accessTest  thrpt    5  134.449 ± 0.834  ops/s
