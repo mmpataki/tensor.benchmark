@@ -1,0 +1,197 @@
+$ taskset -c 5-6 nice -20 java -jar target/benchmarks.jar
+# JMH version: 1.37
+# VM version: JDK 24.0.2-internal, OpenJDK 64-Bit Server VM, 24.0.2-internal-adhoc.mpataki.jdk24u
+# VM invoker: /home/mpataki/projects/jdk24u/build/linux-x86_64-server-release/jdk/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.mpataki.Tensor4DBenchmark.accessTest
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Warmup Fork: 1 of 1
+# Warmup Iteration   1: 132.419 ops/s
+# Warmup Iteration   2: 133.183 ops/s
+# Warmup Iteration   3: 134.219 ops/s
+# Warmup Iteration   4: 134.335 ops/s
+# Warmup Iteration   5: 133.832 ops/s
+Iteration   1: 133.613 ops/s
+Iteration   2: 132.390 ops/s
+Iteration   3: 132.567 ops/s
+Iteration   4: 132.754 ops/s
+Iteration   5: 133.590 ops/s
+
+# Run progress: 50.00% complete, ETA 00:01:40
+# Fork: 1 of 1
+# Warmup Iteration   1: 130.825 ops/s
+# Warmup Iteration   2: 131.200 ops/s
+# Warmup Iteration   3: 128.403 ops/s
+# Warmup Iteration   4: 129.282 ops/s
+# Warmup Iteration   5: 130.469 ops/s
+Iteration   1: 130.113 ops/s
+Iteration   2: 131.161 ops/s
+Iteration   3: 130.000 ops/s
+Iteration   4: 130.367 ops/s
+Iteration   5: 130.330 ops/s
+
+
+Result "com.mpataki.Tensor4DBenchmark.accessTest":
+  130.394 ±(99.9%) 1.750 ops/s [Average]
+  (min, avg, max) = (130.000, 130.394, 131.161), stdev = 0.455
+  CI (99.9%): [128.644, 132.144] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:21
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                      Mode  Cnt    Score   Error  Units
+Tensor4DBenchmark.accessTest  thrpt    5  130.394 ± 1.750  ops/s
+
+
+
+
+
+
+$ taskset -c 5-6 nice -20 java -jar target/benchmarks.jar
+# JMH version: 1.37
+# VM version: JDK 24.0.2-internal, OpenJDK 64-Bit Server VM, 24.0.2-internal-adhoc.mpataki.jdk24u
+# VM invoker: /home/mpataki/projects/jdk24u/build/linux-x86_64-server-release/jdk/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.mpataki.Tensor4DBenchmark.accessTest
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Warmup Fork: 1 of 1
+# Warmup Iteration   1: 131.308 ops/s
+# Warmup Iteration   2: 131.606 ops/s
+# Warmup Iteration   3: 131.760 ops/s
+# Warmup Iteration   4: 131.527 ops/s
+# Warmup Iteration   5: 128.799 ops/s
+Iteration   1: 128.576 ops/s
+Iteration   2: 125.979 ops/s
+Iteration   3: 127.119 ops/s
+Iteration   4: 127.196 ops/s
+Iteration   5: 127.245 ops/s
+
+# Run progress: 50.00% complete, ETA 00:01:40
+# Fork: 1 of 1
+# Warmup Iteration   1: 131.425 ops/s
+# Warmup Iteration   2: 130.748 ops/s
+# Warmup Iteration   3: 130.377 ops/s
+# Warmup Iteration   4: 133.620 ops/s
+# Warmup Iteration   5: 133.631 ops/s
+Iteration   1: 135.267 ops/s
+Iteration   2: 127.208 ops/s
+Iteration   3: 131.353 ops/s
+Iteration   4: 129.026 ops/s
+Iteration   5: 133.464 ops/s
+
+
+Result "com.mpataki.Tensor4DBenchmark.accessTest":
+  131.264 ±(99.9%) 12.528 ops/s [Average]
+  (min, avg, max) = (127.208, 131.264, 135.267), stdev = 3.253
+  CI (99.9%): [118.736, 143.791] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:21
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                      Mode  Cnt    Score    Error  Units
+Tensor4DBenchmark.accessTest  thrpt    5  131.264 ± 12.528  ops/s
+
+
+
+
+
+$ taskset -c 5-6 nice -20 java -jar target/benchmarks.jar
+# JMH version: 1.37
+# VM version: JDK 24.0.2-internal, OpenJDK 64-Bit Server VM, 24.0.2-internal-adhoc.mpataki.jdk24u
+# VM invoker: /home/mpataki/projects/jdk24u/build/linux-x86_64-server-release/jdk/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.mpataki.Tensor4DBenchmark.accessTest
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Warmup Fork: 1 of 1
+# Warmup Iteration   1: 119.375 ops/s
+# Warmup Iteration   2: 115.816 ops/s
+# Warmup Iteration   3: 121.891 ops/s
+# Warmup Iteration   4: 119.108 ops/s
+# Warmup Iteration   5: 120.147 ops/s
+Iteration   1: 125.244 ops/s
+Iteration   2: 122.141 ops/s
+Iteration   3: 122.669 ops/s
+Iteration   4: 115.665 ops/s
+Iteration   5: 120.346 ops/s
+
+# Run progress: 50.00% complete, ETA 00:01:40
+# Fork: 1 of 1
+# Warmup Iteration   1: 122.173 ops/s
+# Warmup Iteration   2: 118.065 ops/s
+# Warmup Iteration   3: 118.928 ops/s
+# Warmup Iteration   4: 125.747 ops/s
+# Warmup Iteration   5: 122.344 ops/s
+Iteration   1: 124.934 ops/s
+Iteration   2: 124.753 ops/s
+Iteration   3: 124.692 ops/s
+Iteration   4: 124.625 ops/s
+Iteration   5: 123.210 ops/s
+
+
+Result "com.mpataki.Tensor4DBenchmark.accessTest":
+  124.443 ±(99.9%) 2.690 ops/s [Average]
+  (min, avg, max) = (123.210, 124.443, 124.934), stdev = 0.699
+  CI (99.9%): [121.752, 127.133] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:21
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                      Mode  Cnt    Score   Error  Units
+Tensor4DBenchmark.accessTest  thrpt    5  124.443 ± 2.690  ops/s
