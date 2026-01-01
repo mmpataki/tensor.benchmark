@@ -1,0 +1,160 @@
+$ taskset -c 6-7 java -jar target/benchmarks.jar 
+# JMH version: 1.37
+# VM version: JDK 24.0.2-internal, OpenJDK 64-Bit Server VM, 24.0.2-internal-adhoc.mpataki.jdk24u
+# VM invoker: /home/mpataki/projects/jdk24u/build/linux-x86_64-server-release/jdk/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.mpataki.Tensor4DBenchmark.accessTest
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Warmup Fork: 1 of 1
+# Warmup Iteration   1: 130.037 ops/s
+# Warmup Iteration   2: 129.832 ops/s
+# Warmup Iteration   3: 130.666 ops/s
+# Warmup Iteration   4: 130.978 ops/s
+# Warmup Iteration   5: 130.521 ops/s
+Iteration   1: 130.152 ops/s
+Iteration   2: 130.018 ops/s
+Iteration   3: 129.861 ops/s
+Iteration   4: 129.953 ops/s
+Iteration   5: 129.778 ops/s
+
+# Run progress: 50.00% complete, ETA 00:01:41
+# Fork: 1 of 1
+# Warmup Iteration   1: 128.904 ops/s
+# Warmup Iteration   2: 129.090 ops/s
+# Warmup Iteration   3: 129.506 ops/s
+# Warmup Iteration   4: 129.022 ops/s
+# Warmup Iteration   5: 128.499 ops/s
+Iteration   1: 128.518 ops/s
+Iteration   2: 128.629 ops/s
+Iteration   3: 128.384 ops/s
+Iteration   4: 128.514 ops/s
+Iteration   5: 128.406 ops/s
+
+
+Result "com.mpataki.Tensor4DBenchmark.accessTest":
+  128.490 ±(99.9%) 0.380 ops/s [Average]
+  (min, avg, max) = (128.384, 128.490, 128.629), stdev = 0.099
+  CI (99.9%): [128.110, 128.870] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:21
+
+Benchmark                      Mode  Cnt    Score   Error  Units
+Tensor4DBenchmark.accessTest  thrpt    5  128.490 ± 0.380  ops/s
+
+
+
+
+
+$ taskset -c 6-7 java -jar target/benchmarks.jar 
+# JMH version: 1.37
+# VM version: JDK 24.0.2-internal, OpenJDK 64-Bit Server VM, 24.0.2-internal-adhoc.mpataki.jdk24u
+# VM invoker: /home/mpataki/projects/jdk24u/build/linux-x86_64-server-release/jdk/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.mpataki.Tensor4DBenchmark.accessTest
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Warmup Fork: 1 of 1
+# Warmup Iteration   1: 127.722 ops/s
+# Warmup Iteration   2: 127.079 ops/s
+# Warmup Iteration   3: 127.967 ops/s
+# Warmup Iteration   4: 127.756 ops/s
+# Warmup Iteration   5: 127.197 ops/s
+Iteration   1: 127.116 ops/s
+Iteration   2: 127.358 ops/s
+Iteration   3: 127.125 ops/s
+Iteration   4: 127.455 ops/s
+Iteration   5: 127.418 ops/s
+
+# Run progress: 50.00% complete, ETA 00:01:41
+# Fork: 1 of 1
+# Warmup Iteration   1: 133.166 ops/s
+# Warmup Iteration   2: 133.083 ops/s
+# Warmup Iteration   3: 133.314 ops/s
+# Warmup Iteration   4: 133.209 ops/s
+# Warmup Iteration   5: 132.794 ops/s
+Iteration   1: 132.527 ops/s
+Iteration   2: 132.536 ops/s
+Iteration   3: 132.471 ops/s
+Iteration   4: 132.413 ops/s
+Iteration   5: 132.582 ops/s
+
+
+Result "com.mpataki.Tensor4DBenchmark.accessTest":
+  132.506 ±(99.9%) 0.251 ops/s [Average]
+  (min, avg, max) = (132.413, 132.506, 132.582), stdev = 0.065
+  CI (99.9%): [132.255, 132.757] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:21
+
+Benchmark                      Mode  Cnt    Score   Error  Units
+Tensor4DBenchmark.accessTest  thrpt    5  132.506 ± 0.251  ops/s
+
+
+
+
+
+$ taskset -c 6-7 java -jar target/benchmarks.jar 
+# JMH version: 1.37
+# VM version: JDK 24.0.2-internal, OpenJDK 64-Bit Server VM, 24.0.2-internal-adhoc.mpataki.jdk24u
+# VM invoker: /home/mpataki/projects/jdk24u/build/linux-x86_64-server-release/jdk/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.mpataki.Tensor4DBenchmark.accessTest
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Warmup Fork: 1 of 1
+# Warmup Iteration   1: 127.109 ops/s
+# Warmup Iteration   2: 126.816 ops/s
+# Warmup Iteration   3: 127.589 ops/s
+# Warmup Iteration   4: 127.571 ops/s
+# Warmup Iteration   5: 127.405 ops/s
+Iteration   1: 127.103 ops/s
+Iteration   2: 127.045 ops/s
+Iteration   3: 126.925 ops/s
+Iteration   4: 127.195 ops/s
+Iteration   5: 126.885 ops/s
+
+# Run progress: 50.00% complete, ETA 00:01:41
+# Fork: 1 of 1
+# Warmup Iteration   1: 136.992 ops/s
+# Warmup Iteration   2: 137.153 ops/s
+# Warmup Iteration   3: 137.113 ops/s
+# Warmup Iteration   4: 136.932 ops/s
+# Warmup Iteration   5: 136.445 ops/s
+Iteration   1: 136.335 ops/s
+Iteration   2: 136.507 ops/s
+Iteration   3: 136.517 ops/s
+Iteration   4: 136.768 ops/s
+Iteration   5: 136.608 ops/s
+
+
+Result "com.mpataki.Tensor4DBenchmark.accessTest":
+  136.547 ±(99.9%) 0.609 ops/s [Average]
+  (min, avg, max) = (136.335, 136.547, 136.768), stdev = 0.158
+  CI (99.9%): [135.938, 137.157] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:21
+
+Benchmark                      Mode  Cnt    Score   Error  Units
+Tensor4DBenchmark.accessTest  thrpt    5  136.547 ± 0.609  ops/s
