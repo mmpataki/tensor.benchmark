@@ -1,0 +1,67 @@
+$ taskset -c 6-7 perf stat java -jar target/benchmarks.jar 
+# JMH version: 1.37
+# VM version: JDK 24.0.2-internal, OpenJDK 64-Bit Server VM, 24.0.2-internal-adhoc.mpataki.jdk24u
+# VM invoker: /home/mpataki/projects/jdk24u/build/linux-x86_64-server-release/jdk/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.mpataki.Tensor4DBenchmark.accessTest
+
+# Run progress: 0.00% complete, ETA 00:03:20
+# Warmup Fork: 1 of 1
+# Warmup Iteration   1: 129.936 ops/s
+# Warmup Iteration   2: 130.399 ops/s
+# Warmup Iteration   3: 130.643 ops/s
+# Warmup Iteration   4: 131.508 ops/s
+# Warmup Iteration   5: 130.333 ops/s
+Iteration   1: 130.294 ops/s
+Iteration   2: 129.797 ops/s
+Iteration   3: 130.609 ops/s
+Iteration   4: 130.131 ops/s
+Iteration   5: 129.316 ops/s
+
+# Run progress: 50.00% complete, ETA 00:01:41
+# Fork: 1 of 1
+# Warmup Iteration   1: 131.662 ops/s
+# Warmup Iteration   2: 131.445 ops/s
+# Warmup Iteration   3: 132.571 ops/s
+# Warmup Iteration   4: 130.489 ops/s
+# Warmup Iteration   5: 130.671 ops/s
+Iteration   1: 130.602 ops/s
+Iteration   2: 130.953 ops/s
+Iteration   3: 132.112 ops/s
+Iteration   4: 130.977 ops/s
+Iteration   5: 129.717 ops/s
+
+
+Result "com.mpataki.Tensor4DBenchmark.accessTest":
+  130.872 ±(99.9%) 3.312 ops/s [Average]
+  (min, avg, max) = (129.717, 130.872, 132.112), stdev = 0.860
+  CI (99.9%): [127.560, 134.185] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:03:21
+
+Benchmark                      Mode  Cnt    Score   Error  Units
+Tensor4DBenchmark.accessTest  thrpt    5  130.872 ± 3.312  ops/s
+
+ Performance counter stats for 'java -jar target/benchmarks.jar':
+
+        203,448.61 msec task-clock                       #    1.000 CPUs utilized             
+            32,758      context-switches                 #  161.014 /sec                      
+                 0      cpu-migrations                   #    0.000 /sec                      
+            52,939      page-faults                      #  260.208 /sec                      
+ 1,437,986,081,591      instructions                     #    2.73  insn per cycle            
+   527,696,589,866      cycles                           #    2.594 GHz                       
+   132,646,534,211      branches                         #  651.990 M/sec                     
+       109,496,026      branch-misses                    #    0.08% of all branches           
+
+     203.501039519 seconds time elapsed
+
+     202.833512000 seconds user
+       0.639494000 seconds sys
+
