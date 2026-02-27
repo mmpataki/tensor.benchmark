@@ -13,7 +13,8 @@ public class Tensor4DBenchmark {
     final int CH_DIM = 16;
     final int R_DIM = 28;
     final int C_DIM = 32;
-    float[][][][] arr = new float[B_DIM][CH_DIM][R_DIM][C_DIM];;
+    
+    Tensor4D tensor = new Tensor4D(B_DIM, CH_DIM, R_DIM, C_DIM);
 
     public float realTest() {
         float sum = 0;
@@ -22,7 +23,7 @@ public class Tensor4DBenchmark {
                 ch = i % CH_DIM,
                 r = i % R_DIM,
                 c = i % C_DIM;
-            sum += arr[b][ch][r][c];
+            sum += tensor.get(b, ch, r, c);
         }
         return sum;
     }
