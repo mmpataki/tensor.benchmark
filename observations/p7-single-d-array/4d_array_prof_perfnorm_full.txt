@@ -1,0 +1,138 @@
+$ taskset -c 10-11 java -jar target/benchmarks.jar -prof perfnorm -wi 2 -i 2
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/mpataki/projects/jmh/tensor.benchmark/target/benchmarks.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 24.0.2-internal, OpenJDK 64-Bit Server VM, 24.0.2-internal-adhoc.mpataki.jdk24u
+# VM invoker: /home/mpataki/projects/jdk24u/build/linux-x86_64-server-release/jdk/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 2 iterations, 10 s each
+# Measurement: 2 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.mpataki.Tensor4DBenchmark.accessTest
+
+# Run progress: 0.00% complete, ETA 00:01:20
+# Warmup Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 136.728 ops/s
+# Warmup Iteration   2: 137.402 ops/s
+Iteration   1: 137.068 ops/s
+Iteration   2: 137.156 ops/s
+# Processing profiler results: LinuxPerfNormProfiler 
+
+# Run progress: 50.00% complete, ETA 00:00:41
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfNormProfiler 
+# Profilers consume stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 133.735 ops/s
+# Warmup Iteration   2: 133.261 ops/s
+Iteration   1: 133.287 ops/s
+Iteration   2: 133.238 ops/s
+# Processing profiler results: LinuxPerfNormProfiler 
+
+
+Result "com.mpataki.Tensor4DBenchmark.accessTest":
+  133.263 ops/s
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:CPI":
+  0.358 clks/insn
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:IPC":
+  2.794 insns/clk
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:L1-dcache-load-misses":
+  2398891.680 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:L1-dcache-loads":
+  7019438.903 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:L1-dcache-stores":
+  11913.478 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:L1-icache-load-misses":
+  4562.458 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:LLC-load-misses":
+  151.708 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:LLC-loads":
+  67594.351 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:LLC-store-misses":
+  7.467 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:LLC-stores":
+  320.958 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:branch-misses":
+  1227.786 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:branches":
+  5014496.884 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:cycles":
+  19358718.240 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:dTLB-load-misses":
+  26.433 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:dTLB-loads":
+  7019772.999 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:dTLB-store-misses":
+  7.915 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:dTLB-stores":
+  11076.570 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:iTLB-load-misses":
+  8.799 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:iTLB-loads":
+  25.510 #/op
+
+Secondary result "com.mpataki.Tensor4DBenchmark.accessTest:instructions":
+  54094393.720 #/op
+
+
+# Run complete. Total time: 00:01:22
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                            Mode  Cnt         Score   Error      Units
+Tensor4DBenchmark.accessTest                        thrpt    2       133.263              ops/s
+Tensor4DBenchmark.accessTest:CPI                    thrpt              0.358          clks/insn
+Tensor4DBenchmark.accessTest:IPC                    thrpt              2.794          insns/clk
+Tensor4DBenchmark.accessTest:L1-dcache-load-misses  thrpt        2398891.680               #/op
+Tensor4DBenchmark.accessTest:L1-dcache-loads        thrpt        7019438.903               #/op
+Tensor4DBenchmark.accessTest:L1-dcache-stores       thrpt          11913.478               #/op
+Tensor4DBenchmark.accessTest:L1-icache-load-misses  thrpt           4562.458               #/op
+Tensor4DBenchmark.accessTest:LLC-load-misses        thrpt            151.708               #/op
+Tensor4DBenchmark.accessTest:LLC-loads              thrpt          67594.351               #/op
+Tensor4DBenchmark.accessTest:LLC-store-misses       thrpt              7.467               #/op
+Tensor4DBenchmark.accessTest:LLC-stores             thrpt            320.958               #/op
+Tensor4DBenchmark.accessTest:branch-misses          thrpt           1227.786               #/op
+Tensor4DBenchmark.accessTest:branches               thrpt        5014496.884               #/op
+Tensor4DBenchmark.accessTest:cycles                 thrpt       19358718.240               #/op
+Tensor4DBenchmark.accessTest:dTLB-load-misses       thrpt             26.433               #/op
+Tensor4DBenchmark.accessTest:dTLB-loads             thrpt        7019772.999               #/op
+Tensor4DBenchmark.accessTest:dTLB-store-misses      thrpt              7.915               #/op
+Tensor4DBenchmark.accessTest:dTLB-stores            thrpt          11076.570               #/op
+Tensor4DBenchmark.accessTest:iTLB-load-misses       thrpt              8.799               #/op
+Tensor4DBenchmark.accessTest:iTLB-loads             thrpt             25.510               #/op
+Tensor4DBenchmark.accessTest:instructions           thrpt       54094393.720               #/op
