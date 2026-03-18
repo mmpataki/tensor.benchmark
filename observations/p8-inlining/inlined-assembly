@@ -1,0 +1,343 @@
+============================= C2-compiled nmethod ==============================
+----------------------------------- Assembly -----------------------------------
+
+Compiled method (c2) 25368  342             com.mpataki.Tensor4DBenchmark::accessTest (11 bytes)
+ total in heap  [0x000074175c905508,0x000074175c905968] = 1120
+ relocation     [0x000074175c9055e0,0x000074175c905608] = 40
+ main code      [0x000074175c905620,0x000074175c905910] = 752
+ stub code      [0x000074175c905910,0x000074175c905928] = 24
+ oops           [0x000074175c905928,0x000074175c905930] = 8
+ metadata       [0x000074175c905930,0x000074175c905968] = 56
+ immutable data [0x0000741710148770,0x0000741710148b10] = 928
+ dependencies   [0x0000741710148770,0x0000741710148788] = 24
+ nul chk table  [0x0000741710148788,0x00007417101487a0] = 24
+ scopes pcs     [0x00007417101487a0,0x00007417101489e0] = 576
+ scopes data    [0x00007417101489e0,0x0000741710148b10] = 304
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+add    %al,(%rax)
+[Instructions begin]
+  0x000074175c905620:   xchg   %ax,%ax
+[Entry Point]
+  # {method} {0x0000741730951b60} 'accessTest' '(Lorg/openjdk/jmh/infra/Blackhole;)V' in 'com/mpataki/Tensor4DBenchmark'
+  # this:     rsi:rsi   = 'com/mpataki/Tensor4DBenchmark'
+  # parm0:    rdx:rdx   = 'org/openjdk/jmh/infra/Blackhole'
+  #           [sp+0x40]  (sp of caller)
+  0x000074175c905622:   mov    0x8(%rsi),%r10d
+  0x000074175c905626:   cmp    0x8(%rax),%r10d
+  0x000074175c90562a:   jne    0x000074175c84e060           ;   {runtime_call Shared Runtime ic_miss_blob}
+[Verified Entry Point]
+  0x000074175c905630:   mov    %eax,-0x14000(%rsp)
+  0x000074175c905637:   push   %rbp
+  0x000074175c905638:   sub    $0x30,%rsp
+  0x000074175c90563c:   cmpl   $0x0,0x20(%r15)
+  0x000074175c905644:   jne    0x000074175c905902           ;*synchronization entry
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@-1 (line 34)
+  0x000074175c90564a:   vmovq  %rdx,%xmm0
+  0x000074175c90564f:   mov    %rsi,%rdx
+  0x000074175c905652:   mov    0x1c(%rsi),%r9d              ;*getfield tensor {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@35 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905656:   mov    0x1c(%r12,%r9,8),%ebx        ; implicit exception: dispatches to 0x000074175c9058d0
+                                                            ;*getfield arr {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::get@1 (line 36)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c90565b:   nopl   0x0(%rax,%rax,1)
+  0x000074175c905660:   mov    0xc(%r12,%rbx,8),%r10d       ; implicit exception: dispatches to 0x000074175c9058d0
+                                                            ;*faload {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::get@13 (line 36)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905665:   vxorps %xmm4,%xmm4,%xmm4
+  0x000074175c905669:   test   %r10d,%r10d
+  0x000074175c90566c:   jbe    0x000074175c9058a0
+  0x000074175c905672:   vaddss 0x10(%r12,%rbx,8),%xmm4,%xmm4;*fadd {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@48 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905679:   mov    0x18(%r12,%r9,8),%r8d        ;*getfield cDim {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::index@12 (line 28)
+                                                            ; - com.mpataki.Tensor4D::get@10 (line 36)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c90567e:   mov    0x14(%r12,%r9,8),%r11d       ;*getfield rDim {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::index@7 (line 28)
+                                                            ; - com.mpataki.Tensor4D::get@10 (line 36)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905683:   mov    %r11d,%ecx
+  0x000074175c905686:   imul   0x10(%r12,%r9,8),%ecx
+  0x000074175c90568c:   imul   %r8d,%r11d                   ;*imul {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::index@27 (line 28)
+                                                            ; - com.mpataki.Tensor4D::get@10 (line 36)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905690:   imul   %r8d,%ecx                    ;*imul {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::index@15 (line 28)
+                                                            ; - com.mpataki.Tensor4D::get@10 (line 36)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905694:   lea    (%r12,%rbx,8),%r14           ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905698:   mov    $0x1,%r9d
+  0x000074175c90569e:   xchg   %ax,%ax
+  0x000074175c9056a0:   jmp    0x000074175c9056ab
+  0x000074175c9056a2:   vmovq  %xmm1,%rdx
+  0x000074175c9056a7:   vmovd  %xmm3,%ebx
+  0x000074175c9056ab:   mov    $0xf423f,%edi
+  0x000074175c9056b0:   sub    %r9d,%edi
+  0x000074175c9056b3:   cmp    $0x7d0,%edi
+  0x000074175c9056b9:   mov    $0x7d0,%esi
+  0x000074175c9056be:   cmova  %esi,%edi
+  0x000074175c9056c1:   add    %r9d,%edi
+  0x000074175c9056c4:   vmovq  %rdx,%xmm1
+  0x000074175c9056c9:   vmovd  %ebx,%xmm3
+  0x000074175c9056cd:   data16 xchg %ax,%ax                 ;*iload_2 {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@10 (line 22)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c9056d0:   mov    %r9d,%edx
+  0x000074175c9056d3:   and    $0xffffffe0,%edx
+  0x000074175c9056d6:   mov    %r9d,%eax
+  0x000074175c9056d9:   sub    %edx,%eax
+  0x000074175c9056db:   mov    %r9d,%edx
+  0x000074175c9056de:   and    $0xffffffc0,%edx
+  0x000074175c9056e1:   mov    %r9d,%ebp
+  0x000074175c9056e4:   sub    %edx,%ebp
+  0x000074175c9056e6:   imul   %ecx,%ebp
+  0x000074175c9056e9:   mov    %r9d,%ebx
+  0x000074175c9056ec:   and    $0xfffffff0,%ebx
+  0x000074175c9056ef:   mov    %r9d,%edx
+  0x000074175c9056f2:   sub    %ebx,%edx
+  0x000074175c9056f4:   imul   %r11d,%edx
+  0x000074175c9056f8:   add    %edx,%ebp
+  0x000074175c9056fa:   movslq %r9d,%rbx
+  0x000074175c9056fd:   imul   $0xffffffff92492493,%rbx,%rdx;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@24 (line 24)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905704:   mov    %rdx,%rbx
+  0x000074175c905707:   sar    $0x20,%rbx
+  0x000074175c90570b:   mov    %ebx,%esi
+  0x000074175c90570d:   add    %r9d,%esi
+  0x000074175c905710:   sar    $0x4,%esi
+  0x000074175c905713:   imul   $0x1c,%esi,%ebx
+  0x000074175c905716:   mov    %r9d,%esi
+  0x000074175c905719:   sub    %ebx,%esi
+  0x000074175c90571b:   imul   %r8d,%esi
+  0x000074175c90571f:   add    %esi,%ebp
+  0x000074175c905721:   add    %eax,%ebp                    ;*iadd {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::index@39 (line 28)
+                                                            ; - com.mpataki.Tensor4D::get@10 (line 36)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905723:   cmp    %r10d,%ebp
+  0x000074175c905726:   jae    0x000074175c905867           ;   {no_reloc}
+  0x000074175c90572c:   vaddss 0x10(%r14,%rbp,4),%xmm4,%xmm4;*fadd {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@48 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905733:   add    $0xffffffff92492493,%rdx
+  0x000074175c90573a:   sar    $0x20,%rdx
+  0x000074175c90573e:   mov    %edx,%eax
+  0x000074175c905740:   mov    %r9d,%r13d
+  0x000074175c905743:   inc    %r13d                        ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@50 (line 21)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905746:   add    %r13d,%eax
+  0x000074175c905749:   mov    %r13d,%edx
+  0x000074175c90574c:   and    $0xffffffe0,%edx
+  0x000074175c90574f:   mov    %r9d,%ebx
+  0x000074175c905752:   sub    %edx,%ebx
+  0x000074175c905754:   sar    $0x4,%eax
+  0x000074175c905757:   mov    %r13d,%ebp
+  0x000074175c90575a:   and    $0xfffffff0,%ebp
+  0x000074175c90575d:   mov    %r9d,%esi
+  0x000074175c905760:   sub    %ebp,%esi
+  0x000074175c905762:   imul   $0x1c,%eax,%eax
+  0x000074175c905765:   mov    %r9d,%edx
+  0x000074175c905768:   sub    %eax,%edx
+  0x000074175c90576a:   inc    %esi
+  0x000074175c90576c:   imul   %r11d,%esi
+  0x000074175c905770:   inc    %edx
+  0x000074175c905772:   imul   %r8d,%edx
+  0x000074175c905776:   mov    %r13d,%ebp
+  0x000074175c905779:   and    $0xffffffc0,%ebp
+  0x000074175c90577c:   mov    %r9d,%eax
+  0x000074175c90577f:   sub    %ebp,%eax
+  0x000074175c905781:   inc    %eax
+  0x000074175c905783:   imul   %ecx,%eax
+  0x000074175c905786:   add    %esi,%eax
+  0x000074175c905788:   add    %edx,%eax
+  0x000074175c90578a:   add    %ebx,%eax                    ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@30 (line 25)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c90578c:   mov    %eax,%ebp
+  0x000074175c90578e:   inc    %ebp                         ;*iadd {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::index@39 (line 28)
+                                                            ; - com.mpataki.Tensor4D::get@10 (line 36)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905790:   cmp    %r10d,%ebp
+  0x000074175c905793:   jae    0x000074175c90586a
+  0x000074175c905799:   movslq %eax,%rbx
+  0x000074175c90579c:   vaddss 0x14(%r14,%rbx,4),%xmm4,%xmm4;*fadd {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@48 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c9057a3:   add    $0x2,%r9d                    ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@50 (line 21)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c9057a7:   cmp    %edi,%r9d
+  0x000074175c9057aa:   jl     0x000074175c9056d0           ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@7 (line 21)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c9057b0:   mov    0x30(%r15),%rbx              ; ImmutableOopMap {r14=Oop xmm0=Oop xmm1=Oop xmm3=NarrowOop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c9057b4:   test   %eax,(%rbx)                  ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+                                                            ;   {poll}
+  0x000074175c9057b6:   data16 nopw 0x0(%rax,%rax,1)
+  0x000074175c9057c0:   cmp    $0xf423f,%r9d
+  0x000074175c9057c7:   jl     0x000074175c9056a2           ;*iload_2 {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@10 (line 22)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c9057cd:   mov    %r9d,%ebx
+  0x000074175c9057d0:   and    $0xffffffe0,%ebx
+  0x000074175c9057d3:   mov    %r9d,%edx
+  0x000074175c9057d6:   sub    %ebx,%edx
+  0x000074175c9057d8:   mov    %r9d,%edi
+  0x000074175c9057db:   and    $0xffffffc0,%edi
+  0x000074175c9057de:   mov    %r9d,%ebp
+  0x000074175c9057e1:   sub    %edi,%ebp
+  0x000074175c9057e3:   imul   %ecx,%ebp
+  0x000074175c9057e6:   mov    %r9d,%edi
+  0x000074175c9057e9:   and    $0xfffffff0,%edi
+  0x000074175c9057ec:   mov    %r9d,%ebx
+  0x000074175c9057ef:   sub    %edi,%ebx
+  0x000074175c9057f1:   imul   %r11d,%ebx
+  0x000074175c9057f5:   add    %ebx,%ebp
+  0x000074175c9057f7:   movslq %r9d,%rbx
+  0x000074175c9057fa:   imul   $0xffffffff92492493,%rbx,%rbx
+  0x000074175c905801:   sar    $0x20,%rbx
+  0x000074175c905805:   mov    %ebx,%ebx
+  0x000074175c905807:   add    %r9d,%ebx
+  0x000074175c90580a:   sar    $0x4,%ebx
+  0x000074175c90580d:   imul   $0x1c,%ebx,%edi
+  0x000074175c905810:   mov    %r9d,%ebx
+  0x000074175c905813:   sub    %edi,%ebx
+  0x000074175c905815:   imul   %r8d,%ebx
+  0x000074175c905819:   add    %ebx,%ebp
+  0x000074175c90581b:   add    %edx,%ebp                    ;*iadd {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::index@39 (line 28)
+                                                            ; - com.mpataki.Tensor4D::get@10 (line 36)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c90581d:   data16 xchg %ax,%ax
+  0x000074175c905820:   cmp    %r10d,%ebp
+  0x000074175c905823:   jae    0x000074175c9058a7
+  0x000074175c905829:   vaddss 0x10(%r14,%rbp,4),%xmm4,%xmm4;*fadd {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@48 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905830:   inc    %r9d                         ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@50 (line 21)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905833:   nopw   0x0(%rax,%rax,1)
+  0x000074175c90583c:   data16 data16 xchg %ax,%ax
+  0x000074175c905840:   cmp    $0xf4240,%r9d
+  0x000074175c905847:   jl     0x000074175c9057cd           ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@7 (line 21)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+  0x000074175c905849:   vmovq  %xmm0,%r10
+  0x000074175c90584e:   test   %r10,%r10
+  0x000074175c905851:   je     0x000074175c9058ba           ;*invokestatic consumeCompiler {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - org.openjdk.jmh.infra.Blackhole::consume@7 (line 414)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@7 (line 35)
+  0x000074175c905857:   add    $0x30,%rsp
+  0x000074175c90585b:   pop    %rbp
+  0x000074175c90585c:   cmp    0x28(%r15),%rsp              ;   {poll_return}
+  0x000074175c905860:   ja     0x000074175c9058ec
+  0x000074175c905866:   ret
+  0x000074175c905867:   mov    %r9d,%r13d
+  0x000074175c90586a:   vmovq  %xmm1,%rdx
+  0x000074175c90586f:   vmovd  %xmm3,%ebx
+  0x000074175c905873:   vmovss %xmm4,(%rsp)
+  0x000074175c905878:   mov    $0xffffffe4,%esi
+  0x000074175c90587d:   mov    %r13d,0x4(%rsp)
+  0x000074175c905882:   vmovsd %xmm0,0x8(%rsp)
+  0x000074175c905888:   mov    %rdx,0x10(%rsp)
+  0x000074175c90588d:   mov    %ebx,0x18(%rsp)
+  0x000074175c905891:   xchg   %ax,%ax
+  0x000074175c905893:   call   0x000074175c880760           ; ImmutableOopMap {[8]=Oop [16]=Oop [24]=NarrowOop }
+                                                            ;*faload {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::get@13 (line 36)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000074175c905898:   nopl   0x1000390(%rax,%rax,1)       ;*faload {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::get@13 (line 36)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+                                                            ;   {post_call_nop}
+  0x000074175c9058a0:   xor    %r13d,%r13d
+  0x000074175c9058a3:   xor    %ebp,%ebp
+  0x000074175c9058a5:   jmp    0x000074175c905873
+  0x000074175c9058a7:   vmovss %xmm4,(%rsp)
+  0x000074175c9058ac:   mov    %r9d,%r13d
+  0x000074175c9058af:   vmovq  %xmm1,%rdx
+  0x000074175c9058b4:   vmovd  %xmm3,%ebx
+  0x000074175c9058b8:   jmp    0x000074175c905878
+  0x000074175c9058ba:   mov    $0xfffffff6,%esi
+  0x000074175c9058bf:   vmovd  %xmm4,%ebp
+  0x000074175c9058c3:   call   0x000074175c880760           ; ImmutableOopMap {}
+                                                            ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@7 (line 35)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000074175c9058c8:   nopl   0x20003c0(%rax,%rax,1)       ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@7 (line 21)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+                                                            ;   {post_call_nop}
+  0x000074175c9058d0:   mov    $0xffffff76,%esi
+  0x000074175c9058d5:   vmovq  %xmm0,%rbp
+  0x000074175c9058da:   mov    %rdx,(%rsp)
+  0x000074175c9058de:   nop
+  0x000074175c9058df:   call   0x000074175c880760           ; ImmutableOopMap {rbp=Oop [0]=Oop }
+                                                            ;*if_icmpge {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@7 (line 21)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000074175c9058e4:   nopl   0x30003dc(%rax,%rax,1)       ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@7 (line 21)
+                                                            ; - com.mpataki.Tensor4DBenchmark::accessTest@1 (line 34)
+                                                            ;   {post_call_nop}
+  0x000074175c9058ec:   movabs $0x74175c90585c,%r10         ;   {internal_word}
+  0x000074175c9058f6:   mov    %r10,0x460(%r15)
+  0x000074175c9058fd:   jmp    0x000074175c8558e0           ;   {runtime_call SafepointBlob}
+  0x000074175c905902:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x000074175c905907:   jmp    0x000074175c90564a
+  0x000074175c90590c:   hlt
+  0x000074175c90590d:   hlt
+  0x000074175c90590e:   hlt
+  0x000074175c90590f:   hlt
+[Exception Handler]
+  0x000074175c905910:   jmp    0x000074175c880a60           ;   {no_reloc}
+[Deopt Handler Code]
+  0x000074175c905915:   call   0x000074175c90591a
+  0x000074175c90591a:   subq   $0x5,(%rsp)
+  0x000074175c90591f:   jmp    0x000074175c854e80           ;   {runtime_call DeoptimizationBlob}
+  0x000074175c905924:   hlt
+  0x000074175c905925:   hlt
+  0x000074175c905926:   hlt
+  0x000074175c905927:   hlt
+--------------------------------------------------------------------------------
+[/Disassembly]
+                            @ 1   com.mpataki.Tensor4DBenchmark::realTest (58 bytes)   inline (hot)
+                              @ 45   com.mpataki.Tensor4D::get (15 bytes)   inline (hot)
+                                @ 10   com.mpataki.Tensor4D::index (41 bytes)   inline (hot)
+                            @ 7   org.openjdk.jmh.infra.Blackhole::consume (19 bytes)   force inline by CompileCommand
+                              @ 7   org.openjdk.jmh.infra.Blackhole::consumeCompiler (1 bytes)   (intrinsic)
