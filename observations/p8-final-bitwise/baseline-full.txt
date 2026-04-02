@@ -1,0 +1,2360 @@
+CompileCommand: print com/mpataki/Tensor4DBenchmark.realTest bool print = true
+# JMH version: 1.37
+# VM version: JDK 24.0.2-internal, OpenJDK 64-Bit Server VM, 24.0.2-internal-adhoc.mpataki.jdk24u
+# VM invoker: /home/mpataki/projects/jdk24u/build/linux-x86_64-server-release/jdk/bin/java
+# VM options: -XX:+UnlockDiagnosticVMOptions -XX:CompileCommand=print,com.mpataki.Tensor4DBenchmark::realTest -XX:+AlwaysPreTouch -Xmx2G -Xms2G -XX:+UseLargePages -XX:+UseTransparentHugePages -XX:LargePageSizeInBytes=2M
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 2 iterations, 10 s each
+# Measurement: 2 iterations, 5 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.mpataki.Tensor4DBenchmark.accessTest
+
+# Run progress: 0.00% complete, ETA 00:01:00
+# Warmup Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -XX:+AlwaysPreTouch -Xmx2G -Xms2G -XX:+UseLargePages -XX:+UseTransparentHugePages -XX:LargePageSizeInBytes=2M
+CompileCommand: print com/mpataki/Tensor4DBenchmark.realTest bool print = true
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/mpataki/projects/jmh/tensor.benchmark/target/benchmarks.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+
+============================= C1-compiled nmethod ==============================
+----------------------------------- Assembly -----------------------------------
+# Warmup Iteration   1: 
+Compiled method (c1) 604  952 %     3       com.mpataki.Tensor4DBenchmark::realTest @ 4 (58 bytes)
+ total in heap  [0x00007bf1fd125d88,0x00007bf1fd126238] = 1200
+ relocation     [0x00007bf1fd125e60,0x00007bf1fd125eb8] = 88
+ main code      [0x00007bf1fd125ec0,0x00007bf1fd1261e0] = 800
+ stub code      [0x00007bf1fd1261e0,0x00007bf1fd126220] = 64
+ oops           [0x00007bf1fd126220,0x00007bf1fd126228] = 8
+ metadata       [0x00007bf1fd126228,0x00007bf1fd126238] = 16
+ immutable data [0x00007bf19c4254e0,0x00007bf19c425660] = 384
+ dependencies   [0x00007bf19c4254e0,0x00007bf19c4254e8] = 8
+ nul chk table  [0x00007bf19c4254e8,0x00007bf19c425520] = 56
+ scopes pcs     [0x00007bf19c425520,0x00007bf19c4255e0] = 192
+ scopes data    [0x00007bf19c4255e0,0x00007bf19c425660] = 128
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+add    %al,(%rax)
+[Instructions begin]
+  0x00007bf1fd125ec0:   data16 data16 nopw 0x0(%rax,%rax,1)
+  0x00007bf1fd125ecb:   data16 data16 xchg %ax,%ax
+  0x00007bf1fd125ecf:   data16 xchg %ax,%ax
+[Entry Point]
+  # {method} {0x00007bf1b895e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark'
+  0x00007bf1fd125ed2:   mov    0x8(%rsi),%r10d
+  0x00007bf1fd125ed6:   cmp    0x8(%rax),%r10d
+  0x00007bf1fd125eda:   jne    0x00007bf20444e060           ;   {runtime_call Shared Runtime ic_miss_blob}
+[Verified Entry Point]
+  0x00007bf1fd125ee0:   mov    %eax,-0x14000(%rsp)
+  0x00007bf1fd125ee7:   push   %rbp
+  0x00007bf1fd125ee8:   sub    $0x60,%rsp
+  0x00007bf1fd125eec:   cmpl   $0x1,0x20(%r15)
+  0x00007bf1fd125ef4:   je     0x00007bf1fd125efb
+  0x00007bf1fd125ef6:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x00007bf1fd125efb:   movabs $0x7bf1b8a1d2a0,%rdi         ;   {metadata(method data for {method} {0x00007bf1b895e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x00007bf1fd125f05:   mov    0xf4(%rdi),%ebx
+  0x00007bf1fd125f0b:   add    $0x2,%ebx
+  0x00007bf1fd125f0e:   mov    %ebx,0xf4(%rdi)
+  0x00007bf1fd125f14:   and    $0x7fe,%ebx
+  0x00007bf1fd125f1a:   test   %ebx,%ebx
+  0x00007bf1fd125f1c:   je     0x00007bf1fd12613e
+  0x00007bf1fd125f22:   mov    $0x0,%edi
+  0x00007bf1fd125f27:   vxorps %xmm0,%xmm0,%xmm0
+  0x00007bf1fd125f2b:   vmovss %xmm0,0x54(%rsp)
+  0x00007bf1fd125f31:   jmp    0x00007bf1fd126079
+  0x00007bf1fd125f36:   xchg   %ax,%ax
+  0x00007bf1fd125f38:   mov    %rdi,%rax
+  0x00007bf1fd125f3b:   mov    $0x40,%ecx
+  0x00007bf1fd125f40:   cmp    $0x80000000,%eax
+  0x00007bf1fd125f45:   jne    0x00007bf1fd125f56
+  0x00007bf1fd125f4b:   xor    %edx,%edx
+  0x00007bf1fd125f4d:   cmp    $0xffffffff,%ecx
+  0x00007bf1fd125f50:   je     0x00007bf1fd125f59
+  0x00007bf1fd125f56:   cltd
+  0x00007bf1fd125f57:   idiv   %ecx                         ; implicit exception: dispatches to 0x00007bf1fd12615f
+  0x00007bf1fd125f59:   mov    %rdx,%rcx
+  0x00007bf1fd125f5c:   mov    %rdi,%rax
+  0x00007bf1fd125f5f:   mov    $0x10,%r8d
+  0x00007bf1fd125f65:   cmp    $0x80000000,%eax
+  0x00007bf1fd125f6a:   jne    0x00007bf1fd125f7c
+  0x00007bf1fd125f70:   xor    %edx,%edx
+  0x00007bf1fd125f72:   cmp    $0xffffffff,%r8d
+  0x00007bf1fd125f76:   je     0x00007bf1fd125f80
+  0x00007bf1fd125f7c:   cltd
+  0x00007bf1fd125f7d:   idiv   %r8d                         ; implicit exception: dispatches to 0x00007bf1fd126164
+  0x00007bf1fd125f80:   mov    %rdx,%r8
+  0x00007bf1fd125f83:   mov    %rdi,%rax
+  0x00007bf1fd125f86:   mov    $0x1c,%r9d
+  0x00007bf1fd125f8c:   cmp    $0x80000000,%eax
+  0x00007bf1fd125f91:   jne    0x00007bf1fd125fa3
+  0x00007bf1fd125f97:   xor    %edx,%edx
+  0x00007bf1fd125f99:   cmp    $0xffffffff,%r9d
+  0x00007bf1fd125f9d:   je     0x00007bf1fd125fa7
+  0x00007bf1fd125fa3:   cltd
+  0x00007bf1fd125fa4:   idiv   %r9d                         ; implicit exception: dispatches to 0x00007bf1fd126169
+  0x00007bf1fd125fa7:   mov    %rdx,%r9
+  0x00007bf1fd125faa:   mov    %rdi,%rax
+  0x00007bf1fd125fad:   mov    $0x20,%ebx
+  0x00007bf1fd125fb2:   cmp    $0x80000000,%eax
+  0x00007bf1fd125fb7:   jne    0x00007bf1fd125fc8
+  0x00007bf1fd125fbd:   xor    %edx,%edx
+  0x00007bf1fd125fbf:   cmp    $0xffffffff,%ebx
+  0x00007bf1fd125fc2:   je     0x00007bf1fd125fcb
+  0x00007bf1fd125fc8:   cltd
+  0x00007bf1fd125fc9:   idiv   %ebx                         ; implicit exception: dispatches to 0x00007bf1fd12616e
+  0x00007bf1fd125fcb:   mov    %rdx,%rbx
+  0x00007bf1fd125fce:   mov    0x1c(%rsi),%eax              ; implicit exception: dispatches to 0x00007bf1fd126173
+  0x00007bf1fd125fd1:   cmp    (%rax),%rax                  ; implicit exception: dispatches to 0x00007bf1fd126178
+  0x00007bf1fd125fd4:   mov    %rax,%rdx
+  0x00007bf1fd125fd7:   movabs $0x7bf1b8a1d2a0,%r11         ;   {metadata(method data for {method} {0x00007bf1b895e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x00007bf1fd125fe1:   movabs $0x170dc240,%r10             ;   {metadata('com/mpataki/Tensor4D')}
+  0x00007bf1fd125feb:   mov    %r10,0x160(%r11)
+  0x00007bf1fd125ff2:   addq   $0x1,0x168(%r11)
+  0x00007bf1fd125ffa:   mov    %rcx,%rdx
+  0x00007bf1fd125ffd:   mov    %r8,%rcx
+  0x00007bf1fd126000:   mov    %r9,%r8
+  0x00007bf1fd126003:   mov    %rbx,%r9
+  0x00007bf1fd126006:   mov    %rsi,0x48(%rsp)
+  0x00007bf1fd12600b:   mov    %rax,%rsi
+  0x00007bf1fd12600e:   mov    %edi,0x3c(%rsp)
+  0x00007bf1fd126012:   nopl   0x0(%rax,%rax,1)
+  0x00007bf1fd126017:   call   0x00007bf204844090           ; ImmutableOopMap {[72]=Oop }
+                                                            ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ;   {optimized virtual_call}
+  0x00007bf1fd12601c:   nopl   0x294(%rax,%rax,1)           ;   {post_call_nop}
+  0x00007bf1fd126024:   vaddss 0x54(%rsp),%xmm0,%xmm0
+  0x00007bf1fd12602a:   mov    0x3c(%rsp),%edi
+  0x00007bf1fd12602e:   inc    %edi
+  0x00007bf1fd126030:   movabs $0x7bf1b8a1d2a0,%rsi         ;   {metadata(method data for {method} {0x00007bf1b895e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x00007bf1fd12603a:   mov    0xf8(%rsi),%ebx
+  0x00007bf1fd126040:   add    $0x2,%ebx
+  0x00007bf1fd126043:   mov    %ebx,0xf8(%rsi)
+  0x00007bf1fd126049:   and    $0x3ffe,%ebx
+  0x00007bf1fd12604f:   test   %ebx,%ebx
+  0x00007bf1fd126051:   je     0x00007bf1fd12617d
+  0x00007bf1fd126057:   mov    0x30(%r15),%r10              ; ImmutableOopMap {[72]=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+  0x00007bf1fd12605b:   test   %eax,(%r10)                  ;   {poll}
+  0x00007bf1fd12605e:   movabs $0x7bf1b8a1d2a0,%rsi         ;   {metadata(method data for {method} {0x00007bf1b895e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x00007bf1fd126068:   incl   0x188(%rsi)
+  0x00007bf1fd12606e:   vmovss %xmm0,0x54(%rsp)
+  0x00007bf1fd126074:   mov    0x48(%rsp),%rsi
+  0x00007bf1fd126079:   cmp    $0xf4240,%edi
+  0x00007bf1fd12607f:   movabs $0x7bf1b8a1d2a0,%rax         ;   {metadata(method data for {method} {0x00007bf1b895e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x00007bf1fd126089:   mov    $0x148,%edx
+  0x00007bf1fd12608e:   jl     0x00007bf1fd126095
+  0x00007bf1fd126090:   mov    $0x138,%edx
+  0x00007bf1fd126095:   mov    (%rax,%rdx,1),%rcx
+  0x00007bf1fd126099:   lea    0x1(%rcx),%rcx
+  0x00007bf1fd12609d:   mov    %rcx,(%rax,%rdx,1)
+  0x00007bf1fd1260a1:   jl     0x00007bf1fd125f38
+  0x00007bf1fd1260a7:   vmovss 0x54(%rsp),%xmm0
+  0x00007bf1fd1260ad:   add    $0x60,%rsp
+  0x00007bf1fd1260b1:   pop    %rbp
+  0x00007bf1fd1260b2:   cmp    0x28(%r15),%rsp              ;   {poll_return}
+  0x00007bf1fd1260b6:   ja     0x00007bf1fd12619e
+  0x00007bf1fd1260bc:   ret
+  0x00007bf1fd1260bd:   mov    %eax,-0x14000(%rsp)
+  0x00007bf1fd1260c4:   push   %rbp
+  0x00007bf1fd1260c5:   sub    $0x60,%rsp
+  0x00007bf1fd1260c9:   data16 xchg %ax,%ax
+  0x00007bf1fd1260cc:   cmpl   $0x0,0x20(%r15)
+  0x00007bf1fd1260d4:   je     0x00007bf1fd1260db
+  0x00007bf1fd1260d6:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x00007bf1fd1260db:   mov    $0x30,%edi
+  0x00007bf1fd1260e0:   movslq %edi,%rdi
+  0x00007bf1fd1260e3:   mov    (%rsi,%rdi,1),%rbx
+  0x00007bf1fd1260e7:   mov    $0x28,%edi
+  0x00007bf1fd1260ec:   movslq %edi,%rdi
+  0x00007bf1fd1260ef:   vmovss (%rsi,%rdi,1),%xmm0
+  0x00007bf1fd1260f4:   mov    $0x20,%edi
+  0x00007bf1fd1260f9:   movslq %edi,%rdi
+  0x00007bf1fd1260fc:   mov    (%rsi,%rdi,1),%eax
+  0x00007bf1fd1260ff:   mov    %rsi,%rdi
+  0x00007bf1fd126102:   mov    %rbx,0x40(%rsp)
+  0x00007bf1fd126107:   mov    %eax,0x38(%rsp)
+  0x00007bf1fd12610b:   vmovss %xmm0,0x50(%rsp)
+  0x00007bf1fd126111:   call   0x00007bf212452190           ;   {runtime_call SharedRuntime::OSR_migration_end(long*)}
+  0x00007bf1fd126116:   nopl   0x0(%rax,%rax,1)             ;   {post_call_nop}
+  0x00007bf1fd12611e:   mov    0x38(%rsp),%eax
+  0x00007bf1fd126122:   mov    %rax,%rdi
+  0x00007bf1fd126125:   vmovss 0x50(%rsp),%xmm0
+  0x00007bf1fd12612b:   mov    0x40(%rsp),%rbx
+  0x00007bf1fd126130:   mov    %rbx,%rsi
+  0x00007bf1fd126133:   vmovss %xmm0,0x54(%rsp)
+  0x00007bf1fd126139:   jmp    0x00007bf1fd126079
+  0x00007bf1fd12613e:   movabs $0x7bf1b895e080,%r10         ;   {metadata({method} {0x00007bf1b895e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x00007bf1fd126148:   mov    %r10,0x8(%rsp)
+  0x00007bf1fd12614d:   movq   $0xffffffffffffffff,(%rsp)
+  0x00007bf1fd126155:   call   0x00007bf2045123e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*synchronization entry
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@-1 (line 20)
+                                                            ;   {runtime_call C1 Runtime counter_overflow_blob}
+  0x00007bf1fd12615a:   jmp    0x00007bf1fd125f22
+  0x00007bf1fd12615f:   call   0x00007bf20450d1e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@13 (line 22)
+                                                            ;   {runtime_call C1 Runtime throw_div0_exception_blob}
+  0x00007bf1fd126164:   call   0x00007bf20450d1e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@18 (line 23)
+                                                            ;   {runtime_call C1 Runtime throw_div0_exception_blob}
+  0x00007bf1fd126169:   call   0x00007bf20450d1e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@24 (line 24)
+                                                            ;   {runtime_call C1 Runtime throw_div0_exception_blob}
+  0x00007bf1fd12616e:   call   0x00007bf20450d1e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@30 (line 25)
+                                                            ;   {runtime_call C1 Runtime throw_div0_exception_blob}
+  0x00007bf1fd126173:   call   0x00007bf20450d4e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*getfield tensor {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@35 (line 26)
+                                                            ;   {runtime_call C1 Runtime throw_null_pointer_exception_blob}
+  0x00007bf1fd126178:   call   0x00007bf20450d4e0           ; ImmutableOopMap {rsi=Oop rax=Oop }
+                                                            ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ;   {runtime_call C1 Runtime throw_null_pointer_exception_blob}
+  0x00007bf1fd12617d:   movabs $0x7bf1b895e080,%r10         ;   {metadata({method} {0x00007bf1b895e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x00007bf1fd126187:   mov    %r10,0x8(%rsp)
+  0x00007bf1fd12618c:   movq   $0x35,(%rsp)
+  0x00007bf1fd126194:   call   0x00007bf2045123e0           ; ImmutableOopMap {[72]=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+                                                            ;   {runtime_call C1 Runtime counter_overflow_blob}
+  0x00007bf1fd126199:   jmp    0x00007bf1fd126057
+  0x00007bf1fd12619e:   movabs $0x7bf1fd1260b2,%r10         ;   {internal_word}
+  0x00007bf1fd1261a8:   mov    %r10,0x460(%r15)
+  0x00007bf1fd1261af:   jmp    0x00007bf2044558e0           ;   {runtime_call SafepointBlob}
+  0x00007bf1fd1261b4:   mov    0x508(%r15),%rax
+  0x00007bf1fd1261bb:   movq   $0x0,0x508(%r15)
+  0x00007bf1fd1261c6:   movq   $0x0,0x510(%r15)
+  0x00007bf1fd1261d1:   add    $0x60,%rsp
+  0x00007bf1fd1261d5:   pop    %rbp
+  0x00007bf1fd1261d6:   jmp    0x00007bf20450c5e0           ;   {runtime_call C1 Runtime unwind_exception_blob}
+  0x00007bf1fd1261db:   hlt
+  0x00007bf1fd1261dc:   hlt
+  0x00007bf1fd1261dd:   hlt
+  0x00007bf1fd1261de:   hlt
+  0x00007bf1fd1261df:   hlt
+[Stub Code]
+  0x00007bf1fd1261e0:   nopl   0x0(%rax,%rax,1)             ;   {no_reloc}
+  0x00007bf1fd1261e5:   movabs $0x0,%rbx                    ;   {static_stub}
+  0x00007bf1fd1261ef:   jmp    0x00007bf1fd1261ef           ;   {runtime_call nmethod}
+[Exception Handler]
+  0x00007bf1fd1261f4:   call   0x00007bf20450f2e0           ;   {runtime_call C1 Runtime handle_exception_from_callee_blob}
+  0x00007bf1fd1261f9:   movabs $0x7bf2127c0632,%rdi         ;   {external_word}
+  0x00007bf1fd126203:   and    $0xfffffffffffffff0,%rsp
+  0x00007bf1fd126207:   call   0x00007bf21226f4b0           ;   {runtime_call MacroAssembler::debug64(char*, long, long*)}
+  0x00007bf1fd12620c:   hlt
+[Deopt Handler Code]
+  0x00007bf1fd12620d:   movabs $0x7bf1fd12620d,%r10         ;   {section_word}
+  0x00007bf1fd126217:   push   %r10
+  0x00007bf1fd126219:   jmp    0x00007bf204454e80           ;   {runtime_call DeoptimizationBlob}
+  0x00007bf1fd12621e:   hlt
+  0x00007bf1fd12621f:   hlt
+--------------------------------------------------------------------------------
+[/Disassembly]
+
+============================= C2-compiled nmethod ==============================
+----------------------------------- Assembly -----------------------------------
+
+Compiled method (c2) 624  953 %     4       com.mpataki.Tensor4DBenchmark::realTest @ 4 (58 bytes)
+ total in heap  [0x00007bf204844288,0x00007bf2048447e0] = 1368
+ relocation     [0x00007bf204844360,0x00007bf204844388] = 40
+ main code      [0x00007bf2048443a0,0x00007bf2048447a8] = 1032
+ stub code      [0x00007bf2048447a8,0x00007bf2048447c0] = 24
+ oops           [0x00007bf2048447c0,0x00007bf2048447c8] = 8
+ metadata       [0x00007bf2048447c8,0x00007bf2048447e0] = 24
+ immutable data [0x00007bf18803af60,0x00007bf18803b048] = 232
+ dependencies   [0x00007bf18803af60,0x00007bf18803af70] = 16
+ nul chk table  [0x00007bf18803af70,0x00007bf18803af88] = 24
+ scopes pcs     [0x00007bf18803af88,0x00007bf18803afe8] = 96
+ scopes data    [0x00007bf18803afe8,0x00007bf18803b048] = 96
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+add    %al,(%rax)
+[Verified Entry Point]
+  # {method} {0x00007bf1b895e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark'
+  0x00007bf2048443a0:   call   0x00007bf21238db70           ;   {runtime_call os::breakpoint()}
+  0x00007bf2048443a5:   data16 data16 nopw 0x0(%rax,%rax,1)
+  0x00007bf2048443b0:   mov    %eax,-0x14000(%rsp)
+  0x00007bf2048443b7:   push   %rbp
+  0x00007bf2048443b8:   sub    $0x20,%rsp
+  0x00007bf2048443bc:   cmpl   $0x1,0x20(%r15)
+  0x00007bf2048443c4:   jne    0x00007bf20484479b
+  0x00007bf2048443ca:   mov    0x30(%rsi),%rbp
+  0x00007bf2048443ce:   vmovss 0x28(%rsi),%xmm0
+  0x00007bf2048443d3:   vmovss %xmm0,(%rsp)
+  0x00007bf2048443d8:   mov    0x20(%rsi),%ebx
+  0x00007bf2048443db:   mov    %rsi,%rdi
+  0x00007bf2048443de:   movabs $0x7bf212452190,%r10
+  0x00007bf2048443e8:   call   *%r10
+  0x00007bf2048443eb:   nopl   0x0(%rax,%rax,1)             ;   {post_call_nop}
+  0x00007bf2048443f3:   test   %rbp,%rbp
+  0x00007bf2048443f6:   je     0x00007bf20484468d
+  0x00007bf2048443fc:   mov    0x8(%rbp),%r10d
+  0x00007bf204844400:   movabs $0x170d29f0,%r11             ;   {metadata('com/mpataki/Tensor4DBenchmark')}
+  0x00007bf20484440a:   mov    %r10d,%r8d
+  0x00007bf20484440d:   mov    0x38(%r8),%r10
+  0x00007bf204844411:   cmp    %r11,%r10
+  0x00007bf204844414:   jne    0x00007bf20484475c
+  0x00007bf20484441a:   mov    0x1c(%rbp),%ecx
+  0x00007bf20484441d:   data16 xchg %ax,%ax
+  0x00007bf204844420:   mov    0x1c(%rcx),%eax              ; implicit exception: dispatches to 0x00007bf20484468f
+  0x00007bf204844423:   mov    0xc(%rax),%r13d              ; implicit exception: dispatches to 0x00007bf20484468f
+  0x00007bf204844427:   cmp    $0xf4240,%ebx
+  0x00007bf20484442d:   jge    0x00007bf2048446a8
+  0x00007bf204844433:   mov    0x18(%rcx),%r10d
+  0x00007bf204844437:   mov    0x14(%rcx),%r11d
+  0x00007bf20484443b:   mov    %r11d,%r9d
+  0x00007bf20484443e:   imul   0x10(%rcx),%r9d
+  0x00007bf204844443:   imul   %r10d,%r11d
+  0x00007bf204844447:   imul   %r10d,%r9d
+  0x00007bf20484444b:   mov    %ebx,%r8d
+  0x00007bf20484444e:   inc    %r8d
+  0x00007bf204844451:   movslq %ebx,%rcx
+  0x00007bf204844454:   mov    %ebx,%edi
+  0x00007bf204844456:   sar    $0x1f,%edi
+  0x00007bf204844459:   imul   $0xffffffff92492493,%rcx,%rsi
+  0x00007bf204844460:   mov    %edi,%edx
+  0x00007bf204844462:   shr    $0x1c,%edx
+  0x00007bf204844465:   add    %ebx,%edx
+  0x00007bf204844467:   sar    $0x20,%rsi
+  0x00007bf20484446b:   and    $0xfffffff0,%edx
+  0x00007bf20484446e:   mov    %ebx,%ecx
+  0x00007bf204844470:   sub    %edx,%ecx
+  0x00007bf204844472:   imul   %r11d,%ecx
+  0x00007bf204844476:   mov    %esi,%esi
+  0x00007bf204844478:   add    %ebx,%esi
+  0x00007bf20484447a:   mov    %edi,%r14d
+  0x00007bf20484447d:   shr    $0x1a,%r14d
+  0x00007bf204844481:   add    %ebx,%r14d
+  0x00007bf204844484:   sar    $0x4,%esi
+  0x00007bf204844487:   sub    %edi,%esi
+  0x00007bf204844489:   and    $0xffffffc0,%r14d
+  0x00007bf20484448d:   mov    %ebx,%edx
+  0x00007bf20484448f:   sub    %r14d,%edx
+  0x00007bf204844492:   imul   %r9d,%edx
+  0x00007bf204844496:   add    %ecx,%edx
+  0x00007bf204844498:   imul   $0x1c,%esi,%ecx
+  0x00007bf20484449b:   mov    %ebx,%r14d
+  0x00007bf20484449e:   sub    %ecx,%r14d
+  0x00007bf2048444a1:   imul   %r10d,%r14d
+  0x00007bf2048444a5:   add    %r14d,%edx
+  0x00007bf2048444a8:   shr    $0x1b,%edi
+  0x00007bf2048444ab:   add    %ebx,%edi
+  0x00007bf2048444ad:   and    $0xffffffe0,%edi
+  0x00007bf2048444b0:   mov    %ebx,%ecx
+  0x00007bf2048444b2:   sub    %edi,%ecx
+  0x00007bf2048444b4:   add    %ecx,%edx
+  0x00007bf2048444b6:   cmp    %r13d,%edx
+  0x00007bf2048444b9:   jae    0x00007bf204844684
+  0x00007bf2048444bf:   vmovss (%rsp),%xmm0
+  0x00007bf2048444c4:   vaddss 0x10(%rax,%rdx,4),%xmm0,%xmm2
+  0x00007bf2048444ca:   inc    %ebx
+  0x00007bf2048444cc:   cmp    %r8d,%ebx
+  0x00007bf2048444cf:   jge    0x00007bf2048444db
+  0x00007bf2048444d1:   vmovss %xmm2,(%rsp)
+  0x00007bf2048444d6:   jmp    0x00007bf204844451
+  0x00007bf2048444db:   nopl   0x0(%rax,%rax,1)
+  0x00007bf2048444e0:   cmp    $0xf423f,%ebx
+  0x00007bf2048444e6:   jge    0x00007bf2048446b7
+  0x00007bf2048444ec:   mov    $0xf423f,%esi
+  0x00007bf2048444f1:   sub    %ebx,%esi
+  0x00007bf2048444f3:   xor    %r8d,%r8d
+  0x00007bf2048444f6:   cmp    $0xf423f,%ebx
+  0x00007bf2048444fc:   cmovg  %r8d,%esi                    ;   {no_reloc}
+  0x00007bf204844500:   cmp    $0x7d0,%esi
+  0x00007bf204844506:   mov    $0x7d0,%r8d
+  0x00007bf20484450c:   cmova  %r8d,%esi
+  0x00007bf204844510:   add    %ebx,%esi
+  0x00007bf204844512:   vmovq  %rbp,%xmm0
+  0x00007bf204844517:   nopw   0x0(%rax,%rax,1)
+  0x00007bf204844520:   movslq %ebx,%r8
+  0x00007bf204844523:   mov    %ebx,%ebp
+  0x00007bf204844525:   sar    $0x1f,%ebp
+  0x00007bf204844528:   imul   $0xffffffff92492493,%r8,%r8
+  0x00007bf20484452f:   mov    %ebp,%ecx
+  0x00007bf204844531:   shr    $0x1c,%ecx
+  0x00007bf204844534:   add    %ebx,%ecx
+  0x00007bf204844536:   sar    $0x20,%r8
+  0x00007bf20484453a:   and    $0xfffffff0,%ecx
+  0x00007bf20484453d:   mov    %ebx,%r14d
+  0x00007bf204844540:   sub    %ecx,%r14d
+  0x00007bf204844543:   imul   %r11d,%r14d
+  0x00007bf204844547:   mov    %r8d,%r8d
+  0x00007bf20484454a:   add    %ebx,%r8d
+  0x00007bf20484454d:   mov    %ebp,%edi
+  0x00007bf20484454f:   shr    $0x1a,%edi
+  0x00007bf204844552:   add    %ebx,%edi
+  0x00007bf204844554:   sar    $0x4,%r8d
+  0x00007bf204844558:   sub    %ebp,%r8d
+  0x00007bf20484455b:   and    $0xffffffc0,%edi
+  0x00007bf20484455e:   mov    %ebx,%edx
+  0x00007bf204844560:   sub    %edi,%edx
+  0x00007bf204844562:   imul   %r9d,%edx
+  0x00007bf204844566:   add    %r14d,%edx
+  0x00007bf204844569:   imul   $0x1c,%r8d,%ecx
+  0x00007bf20484456d:   mov    %ebx,%edi
+  0x00007bf20484456f:   sub    %ecx,%edi
+  0x00007bf204844571:   imul   %r10d,%edi
+  0x00007bf204844575:   add    %edi,%edx
+  0x00007bf204844577:   shr    $0x1b,%ebp
+  0x00007bf20484457a:   add    %ebx,%ebp
+  0x00007bf20484457c:   and    $0xffffffe0,%ebp
+  0x00007bf20484457f:   mov    %ebx,%r8d
+  0x00007bf204844582:   sub    %ebp,%r8d
+  0x00007bf204844585:   add    %r8d,%edx
+  0x00007bf204844588:   cmp    %r13d,%edx
+  0x00007bf20484458b:   jae    0x00007bf204844657
+  0x00007bf204844591:   vaddss 0x10(%rax,%rdx,4),%xmm2,%xmm2
+  0x00007bf204844597:   mov    %ebx,%edi
+  0x00007bf204844599:   inc    %edi
+  0x00007bf20484459b:   movslq %edi,%r8
+  0x00007bf20484459e:   mov    %edi,%ebp
+  0x00007bf2048445a0:   sar    $0x1f,%ebp
+  0x00007bf2048445a3:   imul   $0xffffffff92492493,%r8,%r8
+  0x00007bf2048445aa:   mov    %ebp,%ecx
+  0x00007bf2048445ac:   shr    $0x1c,%ecx
+  0x00007bf2048445af:   add    %ebx,%ecx
+  0x00007bf2048445b1:   sar    $0x20,%r8
+  0x00007bf2048445b5:   inc    %ecx
+  0x00007bf2048445b7:   mov    %r8d,%r8d
+  0x00007bf2048445ba:   add    %ebx,%r8d
+  0x00007bf2048445bd:   and    $0xfffffff0,%ecx
+  0x00007bf2048445c0:   mov    %ebx,%r14d
+  0x00007bf2048445c3:   sub    %ecx,%r14d
+  0x00007bf2048445c6:   inc    %r8d
+  0x00007bf2048445c9:   inc    %r14d
+  0x00007bf2048445cc:   imul   %r11d,%r14d
+  0x00007bf2048445d0:   sar    $0x4,%r8d
+  0x00007bf2048445d4:   sub    %ebp,%r8d
+  0x00007bf2048445d7:   mov    %ebp,%edx
+  0x00007bf2048445d9:   shr    $0x1a,%edx
+  0x00007bf2048445dc:   add    %ebx,%edx
+  0x00007bf2048445de:   imul   $0x1c,%r8d,%r8d
+  0x00007bf2048445e2:   mov    %ebx,%ecx
+  0x00007bf2048445e4:   sub    %r8d,%ecx
+  0x00007bf2048445e7:   inc    %edx
+  0x00007bf2048445e9:   inc    %ecx
+  0x00007bf2048445eb:   imul   %r10d,%ecx
+  0x00007bf2048445ef:   and    $0xffffffc0,%edx
+  0x00007bf2048445f2:   mov    %ebx,%r8d
+  0x00007bf2048445f5:   sub    %edx,%r8d
+  0x00007bf2048445f8:   shr    $0x1b,%ebp
+  0x00007bf2048445fb:   add    %ebx,%ebp
+  0x00007bf2048445fd:   inc    %r8d                         ;   {no_reloc}
+  0x00007bf204844600:   imul   %r9d,%r8d
+  0x00007bf204844604:   add    %r14d,%r8d
+  0x00007bf204844607:   add    %ecx,%r8d
+  0x00007bf20484460a:   inc    %ebp
+  0x00007bf20484460c:   and    $0xffffffe0,%ebp
+  0x00007bf20484460f:   mov    %ebx,%ecx
+  0x00007bf204844611:   sub    %ebp,%ecx
+  0x00007bf204844613:   add    %ecx,%r8d
+  0x00007bf204844616:   mov    %r8d,%edx
+  0x00007bf204844619:   inc    %edx
+  0x00007bf20484461b:   nopl   0x0(%rax,%rax,1)
+  0x00007bf204844620:   cmp    %r13d,%edx
+  0x00007bf204844623:   jae    0x00007bf204844659
+  0x00007bf204844625:   movslq %r8d,%r8
+  0x00007bf204844628:   vaddss 0x14(%rax,%r8,4),%xmm2,%xmm2
+  0x00007bf20484462f:   add    $0x2,%ebx
+  0x00007bf204844632:   cmp    %esi,%ebx
+  0x00007bf204844634:   jl     0x00007bf204844520
+  0x00007bf20484463a:   mov    0x30(%r15),%r8               ; ImmutableOopMap {rax=NarrowOop xmm0=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+  0x00007bf20484463e:   test   %eax,(%r8)                   ;   {poll}
+  0x00007bf204844641:   cmp    $0xf423f,%ebx
+  0x00007bf204844647:   jge    0x00007bf2048446b2
+  0x00007bf20484464d:   vmovq  %xmm0,%rbp
+  0x00007bf204844652:   jmp    0x00007bf2048444ec
+  0x00007bf204844657:   mov    %ebx,%edi
+  0x00007bf204844659:   vmovq  %xmm0,%rbp
+  0x00007bf20484465e:   vmovss %xmm2,(%rsp)
+  0x00007bf204844663:   mov    $0xffffffe4,%esi
+  0x00007bf204844668:   mov    %edi,0x4(%rsp)
+  0x00007bf20484466c:   mov    %eax,0x8(%rsp)
+  0x00007bf204844670:   mov    %edx,0xc(%rsp)
+  0x00007bf204844674:   data16 xchg %ax,%ax
+  0x00007bf204844677:   call   0x00007bf2045138e0           ; ImmutableOopMap {rbp=Oop [8]=NarrowOop }
+                                                            ;*faload {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::get@44 (line 20)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x00007bf20484467c:   nopl   0x10003f4(%rax,%rax,1)       ;   {post_call_nop}
+  0x00007bf204844684:   mov    %ebx,%edi
+  0x00007bf204844686:   vmovss (%rsp),%xmm2
+  0x00007bf20484468b:   jmp    0x00007bf20484465e
+  0x00007bf20484468d:   xor    %ebp,%ebp
+  0x00007bf20484468f:   mov    $0xffffffbe,%esi
+  0x00007bf204844694:   mov    %ebx,0x4(%rsp)
+  0x00007bf204844698:   data16 xchg %ax,%ax
+  0x00007bf20484469b:   call   0x00007bf2045138e0           ; ImmutableOopMap {rbp=Oop }
+                                                            ;*iload_2 {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@4 (line 21)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x00007bf2048446a0:   nopl   0x2000418(%rax,%rax,1)       ;   {post_call_nop}
+  0x00007bf2048446a8:   vmovss (%rsp),%xmm2
+  0x00007bf2048446ad:   jmp    0x00007bf204844748
+  0x00007bf2048446b2:   vmovq  %xmm0,%rbp
+  0x00007bf2048446b7:   nopw   0x0(%rax,%rax,1)
+  0x00007bf2048446c0:   cmp    $0xf4240,%ebx
+  0x00007bf2048446c6:   jge    0x00007bf204844748
+  0x00007bf2048446cc:   movslq %ebx,%rcx
+  0x00007bf2048446cf:   mov    %ebx,%r8d
+  0x00007bf2048446d2:   sar    $0x1f,%r8d
+  0x00007bf2048446d6:   imul   $0xffffffff92492493,%rcx,%rcx
+  0x00007bf2048446dd:   mov    %r8d,%esi
+  0x00007bf2048446e0:   shr    $0x1c,%esi
+  0x00007bf2048446e3:   add    %ebx,%esi
+  0x00007bf2048446e5:   sar    $0x20,%rcx
+  0x00007bf2048446e9:   and    $0xfffffff0,%esi
+  0x00007bf2048446ec:   mov    %ebx,%edi
+  0x00007bf2048446ee:   sub    %esi,%edi
+  0x00007bf2048446f0:   imul   %r11d,%edi
+  0x00007bf2048446f4:   mov    %ecx,%ecx
+  0x00007bf2048446f6:   add    %ebx,%ecx
+  0x00007bf2048446f8:   mov    %r8d,%esi
+  0x00007bf2048446fb:   shr    $0x1a,%esi
+  0x00007bf2048446fe:   add    %ebx,%esi
+  0x00007bf204844700:   sar    $0x4,%ecx
+  0x00007bf204844703:   sub    %r8d,%ecx
+  0x00007bf204844706:   and    $0xffffffc0,%esi
+  0x00007bf204844709:   mov    %ebx,%edx
+  0x00007bf20484470b:   sub    %esi,%edx
+  0x00007bf20484470d:   imul   %r9d,%edx
+  0x00007bf204844711:   add    %edi,%edx
+  0x00007bf204844713:   imul   $0x1c,%ecx,%edi
+  0x00007bf204844716:   mov    %ebx,%esi
+  0x00007bf204844718:   sub    %edi,%esi
+  0x00007bf20484471a:   imul   %r10d,%esi
+  0x00007bf20484471e:   add    %esi,%edx
+  0x00007bf204844720:   shr    $0x1b,%r8d
+  0x00007bf204844724:   add    %ebx,%r8d
+  0x00007bf204844727:   and    $0xffffffe0,%r8d
+  0x00007bf20484472b:   mov    %ebx,%ecx
+  0x00007bf20484472d:   sub    %r8d,%ecx
+  0x00007bf204844730:   add    %ecx,%edx
+  0x00007bf204844732:   cmp    %r13d,%edx
+  0x00007bf204844735:   jae    0x00007bf204844774
+  0x00007bf204844737:   vaddss 0x10(%rax,%rdx,4),%xmm2,%xmm2
+  0x00007bf20484473d:   inc    %ebx
+  0x00007bf20484473f:   nop
+  0x00007bf204844740:   cmp    $0xf4240,%ebx
+  0x00007bf204844746:   jl     0x00007bf2048446cc
+  0x00007bf204844748:   vmovaps %xmm2,%xmm0
+  0x00007bf20484474c:   add    $0x20,%rsp
+  0x00007bf204844750:   pop    %rbp
+  0x00007bf204844751:   cmp    0x28(%r15),%rsp              ;   {poll_return}
+  0x00007bf204844755:   ja     0x00007bf204844785
+  0x00007bf20484475b:   ret
+  0x00007bf20484475c:   mov    $0xffffff8d,%esi
+  0x00007bf204844761:   mov    %ebx,0x4(%rsp)
+  0x00007bf204844765:   xchg   %ax,%ax
+  0x00007bf204844767:   call   0x00007bf2045138e0           ; ImmutableOopMap {rbp=Oop }
+                                                            ;*iload_2 {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@4 (line 21)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x00007bf20484476c:   nopl   0x30004e4(%rax,%rax,1)       ;   {post_call_nop}
+  0x00007bf204844774:   vmovss %xmm2,(%rsp)
+  0x00007bf204844779:   mov    %ebx,%edi
+  0x00007bf20484477b:   nopl   0x0(%rax,%rax,1)
+  0x00007bf204844780:   jmp    0x00007bf204844663
+  0x00007bf204844785:   movabs $0x7bf204844751,%r10         ;   {internal_word}
+  0x00007bf20484478f:   mov    %r10,0x460(%r15)
+  0x00007bf204844796:   jmp    0x00007bf2044558e0           ;   {runtime_call SafepointBlob}
+  0x00007bf20484479b:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x00007bf2048447a0:   jmp    0x00007bf2048443ca
+  0x00007bf2048447a5:   hlt
+  0x00007bf2048447a6:   hlt
+  0x00007bf2048447a7:   hlt
+[Exception Handler]
+  0x00007bf2048447a8:   jmp    0x00007bf204513be0           ;   {no_reloc}
+[Deopt Handler Code]
+  0x00007bf2048447ad:   call   0x00007bf2048447b2
+  0x00007bf2048447b2:   subq   $0x5,(%rsp)
+  0x00007bf2048447b7:   jmp    0x00007bf204454e80           ;   {runtime_call DeoptimizationBlob}
+  0x00007bf2048447bc:   hlt
+  0x00007bf2048447bd:   hlt
+  0x00007bf2048447be:   hlt
+  0x00007bf2048447bf:   hlt
+--------------------------------------------------------------------------------
+[/Disassembly]
+
+============================= C2-compiled nmethod ==============================
+----------------------------------- Assembly -----------------------------------
+
+Compiled method (c2) 635  954       4       com.mpataki.Tensor4DBenchmark::realTest (58 bytes)
+ total in heap  [0x00007bf204844808,0x00007bf204844bc8] = 960
+ relocation     [0x00007bf2048448e0,0x00007bf204844900] = 32
+ main code      [0x00007bf204844900,0x00007bf204844b90] = 656
+ stub code      [0x00007bf204844b90,0x00007bf204844ba8] = 24
+ oops           [0x00007bf204844ba8,0x00007bf204844bb0] = 8
+ metadata       [0x00007bf204844bb0,0x00007bf204844bc8] = 24
+ immutable data [0x00007bf198163470,0x00007bf198163550] = 224
+ dependencies   [0x00007bf198163470,0x00007bf198163480] = 16
+ nul chk table  [0x00007bf198163480,0x00007bf198163498] = 24
+ scopes pcs     [0x00007bf198163498,0x00007bf1981634e8] = 80
+ scopes data    [0x00007bf1981634e8,0x00007bf198163550] = 104
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+add    %al,(%rax)
+[Instructions begin]
+  0x00007bf204844900:   xchg   %ax,%ax
+[Entry Point]
+  # {method} {0x00007bf1b895e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark'
+  #           [sp+0x30]  (sp of caller)
+  0x00007bf204844902:   mov    0x8(%rsi),%r10d
+  0x00007bf204844906:   cmp    0x8(%rax),%r10d
+  0x00007bf20484490a:   jne    0x00007bf20444e060           ;   {runtime_call Shared Runtime ic_miss_blob}
+[Verified Entry Point]
+  0x00007bf204844910:   mov    %eax,-0x14000(%rsp)
+  0x00007bf204844917:   push   %rbp
+  0x00007bf204844918:   sub    $0x20,%rsp
+  0x00007bf20484491c:   cmpl   $0x0,0x20(%r15)
+  0x00007bf204844924:   jne    0x00007bf204844b82
+  0x00007bf20484492a:   mov    %rsi,%rbp
+  0x00007bf20484492d:   mov    0x1c(%rsi),%r9d
+  0x00007bf204844931:   mov    0x1c(%r9),%eax               ; implicit exception: dispatches to 0x00007bf204844b59
+  0x00007bf204844935:   mov    0xc(%rax),%r10d              ; implicit exception: dispatches to 0x00007bf204844b59
+  0x00007bf204844939:   vxorps %xmm0,%xmm0,%xmm0
+  0x00007bf20484493d:   data16 xchg %ax,%ax
+  0x00007bf204844940:   test   %r10d,%r10d
+  0x00007bf204844943:   jbe    0x00007bf204844ac8
+  0x00007bf204844949:   vaddss 0x10(%rax),%xmm0,%xmm0
+  0x00007bf20484494e:   mov    0x14(%r9),%r8d
+  0x00007bf204844952:   mov    %r8d,%r11d
+  0x00007bf204844955:   imul   0x10(%r9),%r11d
+  0x00007bf20484495a:   mov    0x18(%r9),%ecx
+  0x00007bf20484495e:   imul   %ecx,%r11d
+  0x00007bf204844962:   imul   %ecx,%r8d
+  0x00007bf204844966:   mov    $0x1,%r9d
+  0x00007bf20484496c:   jmp    0x00007bf204844a77
+  0x00007bf204844971:   vmovq  %xmm1,%rbp
+  0x00007bf204844976:   mov    %r9d,%edx
+  0x00007bf204844979:   and    $0xffffffe0,%edx
+  0x00007bf20484497c:   mov    %r9d,%edi
+  0x00007bf20484497f:   sub    %edx,%edi
+  0x00007bf204844981:   mov    %r9d,%ebx
+  0x00007bf204844984:   and    $0xffffffc0,%ebx
+  0x00007bf204844987:   mov    %r9d,%edx
+  0x00007bf20484498a:   sub    %ebx,%edx
+  0x00007bf20484498c:   imul   %r11d,%edx
+  0x00007bf204844990:   mov    %r9d,%ebx
+  0x00007bf204844993:   and    $0xfffffff0,%ebx
+  0x00007bf204844996:   mov    %r9d,%esi
+  0x00007bf204844999:   sub    %ebx,%esi
+  0x00007bf20484499b:   imul   %r8d,%esi
+  0x00007bf20484499f:   add    %esi,%edx
+  0x00007bf2048449a1:   movslq %r9d,%rbx
+  0x00007bf2048449a4:   imul   $0xffffffff92492493,%rbx,%r13
+  0x00007bf2048449ab:   mov    %r13,%rbx
+  0x00007bf2048449ae:   sar    $0x20,%rbx
+  0x00007bf2048449b2:   mov    %ebx,%ebx
+  0x00007bf2048449b4:   add    %r9d,%ebx
+  0x00007bf2048449b7:   sar    $0x4,%ebx
+  0x00007bf2048449ba:   imul   $0x1c,%ebx,%ebx
+  0x00007bf2048449bd:   mov    %r9d,%esi
+  0x00007bf2048449c0:   sub    %ebx,%esi
+  0x00007bf2048449c2:   imul   %ecx,%esi
+  0x00007bf2048449c5:   add    %esi,%edx
+  0x00007bf2048449c7:   add    %edi,%edx
+  0x00007bf2048449c9:   cmp    %r10d,%edx
+  0x00007bf2048449cc:   jae    0x00007bf204844a98
+  0x00007bf2048449d2:   vmovq  %rbp,%xmm1
+  0x00007bf2048449d7:   vaddss 0x10(%rax,%rdx,4),%xmm0,%xmm0
+  0x00007bf2048449dd:   add    $0xffffffff92492493,%r13
+  0x00007bf2048449e4:   sar    $0x20,%r13
+  0x00007bf2048449e8:   mov    %r13d,%edi
+  0x00007bf2048449eb:   mov    %r9d,%ebx
+  0x00007bf2048449ee:   inc    %ebx
+  0x00007bf2048449f0:   add    %ebx,%edi
+  0x00007bf2048449f2:   mov    %ebx,%edx
+  0x00007bf2048449f4:   and    $0xffffffe0,%edx
+  0x00007bf2048449f7:   mov    %r9d,%ebp
+  0x00007bf2048449fa:   sub    %edx,%ebp
+  0x00007bf2048449fc:   sar    $0x4,%edi
+  0x00007bf2048449ff:   mov    %ebx,%esi
+  0x00007bf204844a01:   and    $0xfffffff0,%esi
+  0x00007bf204844a04:   mov    %r9d,%edx
+  0x00007bf204844a07:   sub    %esi,%edx
+  0x00007bf204844a09:   imul   $0x1c,%edi,%edi              ;   {no_reloc}
+  0x00007bf204844a0c:   mov    %r9d,%r13d
+  0x00007bf204844a0f:   sub    %edi,%r13d
+  0x00007bf204844a12:   inc    %edx
+  0x00007bf204844a14:   imul   %r8d,%edx
+  0x00007bf204844a18:   inc    %r13d
+  0x00007bf204844a1b:   imul   %ecx,%r13d
+  0x00007bf204844a1f:   mov    %ebx,%esi
+  0x00007bf204844a21:   and    $0xffffffc0,%esi
+  0x00007bf204844a24:   mov    %r9d,%edi
+  0x00007bf204844a27:   sub    %esi,%edi
+  0x00007bf204844a29:   inc    %edi
+  0x00007bf204844a2b:   imul   %r11d,%edi
+  0x00007bf204844a2f:   add    %edx,%edi
+  0x00007bf204844a31:   add    %r13d,%edi
+  0x00007bf204844a34:   add    %ebp,%edi
+  0x00007bf204844a36:   mov    %edi,%edx
+  0x00007bf204844a38:   inc    %edx
+  0x00007bf204844a3a:   nopw   0x0(%rax,%rax,1)
+  0x00007bf204844a40:   cmp    %r10d,%edx
+  0x00007bf204844a43:   jae    0x00007bf204844a9d
+  0x00007bf204844a49:   movslq %edi,%rbx
+  0x00007bf204844a4c:   vaddss 0x14(%rax,%rbx,4),%xmm0,%xmm0
+  0x00007bf204844a52:   add    $0x2,%r9d
+  0x00007bf204844a56:   cmp    %r14d,%r9d
+  0x00007bf204844a59:   jl     0x00007bf204844971
+  0x00007bf204844a5f:   mov    0x30(%r15),%rbx              ; ImmutableOopMap {rax=NarrowOop xmm1=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+  0x00007bf204844a63:   test   %eax,(%rbx)                  ;   {poll}
+  0x00007bf204844a65:   cmp    $0xf423f,%r9d
+  0x00007bf204844a6c:   jge    0x00007bf204844ace
+  0x00007bf204844a72:   vmovq  %xmm1,%rbp
+  0x00007bf204844a77:   mov    $0xf423f,%r14d
+  0x00007bf204844a7d:   sub    %r9d,%r14d
+  0x00007bf204844a80:   cmp    $0x7d0,%r14d
+  0x00007bf204844a87:   mov    $0x7d0,%ebx
+  0x00007bf204844a8c:   cmova  %ebx,%r14d
+  0x00007bf204844a90:   add    %r9d,%r14d
+  0x00007bf204844a93:   jmp    0x00007bf204844976
+  0x00007bf204844a98:   mov    %r9d,%ebx
+  0x00007bf204844a9b:   jmp    0x00007bf204844aa2
+  0x00007bf204844a9d:   vmovq  %xmm1,%rbp
+  0x00007bf204844aa2:   vmovss %xmm0,(%rsp)
+  0x00007bf204844aa7:   mov    $0xffffffe4,%esi
+  0x00007bf204844aac:   mov    %ebx,0x4(%rsp)
+  0x00007bf204844ab0:   mov    %eax,0x8(%rsp)
+  0x00007bf204844ab4:   mov    %edx,0xc(%rsp)
+  0x00007bf204844ab8:   data16 xchg %ax,%ax
+  0x00007bf204844abb:   call   0x00007bf2045138e0           ; ImmutableOopMap {rbp=Oop [8]=NarrowOop }
+                                                            ;*faload {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::get@44 (line 20)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x00007bf204844ac0:   nopl   0x10002b8(%rax,%rax,1)       ;   {post_call_nop}
+  0x00007bf204844ac8:   xor    %ebx,%ebx
+  0x00007bf204844aca:   xor    %edx,%edx
+  0x00007bf204844acc:   jmp    0x00007bf204844aa2
+  0x00007bf204844ace:   mov    %r9d,%edi
+  0x00007bf204844ad1:   and    $0xffffffe0,%edi
+  0x00007bf204844ad4:   mov    %r9d,%esi
+  0x00007bf204844ad7:   sub    %edi,%esi
+  0x00007bf204844ad9:   mov    %r9d,%ebx
+  0x00007bf204844adc:   and    $0xffffffc0,%ebx
+  0x00007bf204844adf:   mov    %r9d,%edx
+  0x00007bf204844ae2:   sub    %ebx,%edx
+  0x00007bf204844ae4:   imul   %r11d,%edx
+  0x00007bf204844ae8:   mov    %r9d,%ebx
+  0x00007bf204844aeb:   and    $0xfffffff0,%ebx
+  0x00007bf204844aee:   mov    %r9d,%ebp
+  0x00007bf204844af1:   sub    %ebx,%ebp
+  0x00007bf204844af3:   imul   %r8d,%ebp
+  0x00007bf204844af7:   add    %ebp,%edx
+  0x00007bf204844af9:   movslq %r9d,%rbx
+  0x00007bf204844afc:   imul   $0xffffffff92492493,%rbx,%rbx
+  0x00007bf204844b03:   sar    $0x20,%rbx
+  0x00007bf204844b07:   mov    %ebx,%edi
+  0x00007bf204844b09:   add    %r9d,%edi
+  0x00007bf204844b0c:   sar    $0x4,%edi
+  0x00007bf204844b0f:   imul   $0x1c,%edi,%ebx
+  0x00007bf204844b12:   mov    %r9d,%edi
+  0x00007bf204844b15:   sub    %ebx,%edi
+  0x00007bf204844b17:   imul   %ecx,%edi
+  0x00007bf204844b1a:   add    %edi,%edx
+  0x00007bf204844b1c:   add    %esi,%edx
+  0x00007bf204844b1e:   xchg   %ax,%ax
+  0x00007bf204844b20:   cmp    %r10d,%edx
+  0x00007bf204844b23:   jae    0x00007bf204844b47
+  0x00007bf204844b25:   vaddss 0x10(%rax,%rdx,4),%xmm0,%xmm0
+  0x00007bf204844b2b:   inc    %r9d
+  0x00007bf204844b2e:   cmp    $0xf4240,%r9d
+  0x00007bf204844b35:   jl     0x00007bf204844ace
+  0x00007bf204844b37:   add    $0x20,%rsp
+  0x00007bf204844b3b:   pop    %rbp
+  0x00007bf204844b3c:   cmp    0x28(%r15),%rsp              ;   {poll_return}
+  0x00007bf204844b40:   ja     0x00007bf204844b6c
+  0x00007bf204844b46:   ret
+  0x00007bf204844b47:   vmovss %xmm0,(%rsp)
+  0x00007bf204844b4c:   mov    %r9d,%ebx
+  0x00007bf204844b4f:   vmovq  %xmm1,%rbp
+  0x00007bf204844b54:   jmp    0x00007bf204844aa7
+  0x00007bf204844b59:   mov    $0xffffff76,%esi
+  0x00007bf204844b5e:   nop
+  0x00007bf204844b5f:   call   0x00007bf2045138e0           ; ImmutableOopMap {rbp=Oop }
+                                                            ;*if_icmpge {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@7 (line 21)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x00007bf204844b64:   nopl   0x200035c(%rax,%rax,1)       ;   {post_call_nop}
+  0x00007bf204844b6c:   movabs $0x7bf204844b3c,%r10         ;   {internal_word}
+  0x00007bf204844b76:   mov    %r10,0x460(%r15)
+  0x00007bf204844b7d:   jmp    0x00007bf2044558e0           ;   {runtime_call SafepointBlob}
+  0x00007bf204844b82:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x00007bf204844b87:   jmp    0x00007bf20484492a
+  0x00007bf204844b8c:   hlt
+  0x00007bf204844b8d:   hlt
+  0x00007bf204844b8e:   hlt
+  0x00007bf204844b8f:   hlt
+[Exception Handler]
+  0x00007bf204844b90:   jmp    0x00007bf204513be0           ;   {no_reloc}
+[Deopt Handler Code]
+  0x00007bf204844b95:   call   0x00007bf204844b9a
+  0x00007bf204844b9a:   subq   $0x5,(%rsp)
+  0x00007bf204844b9f:   jmp    0x00007bf204454e80           ;   {runtime_call DeoptimizationBlob}
+  0x00007bf204844ba4:   hlt
+  0x00007bf204844ba5:   hlt
+  0x00007bf204844ba6:   hlt
+  0x00007bf204844ba7:   hlt
+--------------------------------------------------------------------------------
+[/Disassembly]
+277.256 ops/s
+# Warmup Iteration   2: 278.441 ops/s
+Iteration   1: 284.595 ops/s
+Iteration   2: 285.631 ops/s
+------------------------------------------------------------------------
+com.mpataki.Tensor4DBenchmark::realTest()F
+  interpreter_invocation_count:           3
+  invocation_counter:                     3
+  backedge_counter:                 1382046
+  decompile_count:                        0
+  mdo size: 480 bytes
+
+   0 fconst_0
+   1 fstore_1
+   2 iconst_0
+   3 istore_2
+   4 iload_2
+   5 ldc 1000000
+   7 if_icmpge 56
+  0    bci: 7    BranchData         taken(1) displacement(104)
+                                    not taken(1316863)
+  10 iload_2
+  11 bipush 64
+  13 irem
+  14 istore_3
+  15 iload_2
+  16 bipush 16
+  18 irem
+  19 istore #4
+  21 iload_2
+  22 bipush 28
+  24 irem
+  25 istore #5
+  27 iload_2
+  28 bipush 32
+  30 irem
+  31 istore #6
+  33 fload_1
+  34 fast_aaccess_0
+  35 fast_agetfield 27 <com/mpataki/Tensor4DBenchmark.tensor:Lcom/mpataki/Tensor4D;> 
+  38 iload_3
+  39 fast_iload #4
+  41 fast_iload2 #5
+  43 fast_iload #6
+  45 invokevirtual 32 <com/mpataki/Tensor4D.get(IIII)F> 
+  32   bci: 45   VirtualCallData    count(0) entries(1)
+                                    'com/mpataki/Tensor4D'(1316863 1.00)
+  48 fadd
+  49 fstore_1
+  50 iinc #2 1
+  53 goto 4
+  80   bci: 53   JumpData           taken(1316863) displacement(-80)
+  56 fload_1
+  57 freturn
+------------------------------------------------------------------------
+Total MDO size: 480 bytes
+
+# Run progress: 50.00% complete, ETA 00:00:30
+# Fork: 1 of 1
+Picked up _JAVA_OPTIONS: -XX:+AlwaysPreTouch -Xmx2G -Xms2G -XX:+UseLargePages -XX:+UseTransparentHugePages -XX:LargePageSizeInBytes=2M
+CompileCommand: print com/mpataki/Tensor4DBenchmark.realTest bool print = true
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/home/mpataki/projects/jmh/tensor.benchmark/target/benchmarks.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 
+============================= C1-compiled nmethod ==============================
+----------------------------------- Assembly -----------------------------------
+
+Compiled method (c1) 589  942 %     3       com.mpataki.Tensor4DBenchmark::realTest @ 4 (58 bytes)
+ total in heap  [0x000073de2d126288,0x000073de2d126738] = 1200
+ relocation     [0x000073de2d126360,0x000073de2d1263b8] = 88
+ main code      [0x000073de2d1263c0,0x000073de2d1266e0] = 800
+ stub code      [0x000073de2d1266e0,0x000073de2d126720] = 64
+ oops           [0x000073de2d126720,0x000073de2d126728] = 8
+ metadata       [0x000073de2d126728,0x000073de2d126738] = 16
+ immutable data [0x000073ddd0265020,0x000073ddd02651a0] = 384
+ dependencies   [0x000073ddd0265020,0x000073ddd0265028] = 8
+ nul chk table  [0x000073ddd0265028,0x000073ddd0265060] = 56
+ scopes pcs     [0x000073ddd0265060,0x000073ddd0265120] = 192
+ scopes data    [0x000073ddd0265120,0x000073ddd02651a0] = 128
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+add    %al,(%rax)
+[Instructions begin]
+  0x000073de2d1263c0:   data16 data16 nopw 0x0(%rax,%rax,1)
+  0x000073de2d1263cb:   data16 data16 xchg %ax,%ax
+  0x000073de2d1263cf:   data16 xchg %ax,%ax
+[Entry Point]
+  # {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark'
+  0x000073de2d1263d2:   mov    0x8(%rsi),%r10d
+  0x000073de2d1263d6:   cmp    0x8(%rax),%r10d
+  0x000073de2d1263da:   jne    0x000073de3444e060           ;   {runtime_call Shared Runtime ic_miss_blob}
+[Verified Entry Point]
+  0x000073de2d1263e0:   mov    %eax,-0x14000(%rsp)
+  0x000073de2d1263e7:   push   %rbp
+  0x000073de2d1263e8:   sub    $0x60,%rsp
+  0x000073de2d1263ec:   cmpl   $0x1,0x20(%r15)
+  0x000073de2d1263f4:   je     0x000073de2d1263fb
+  0x000073de2d1263f6:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x000073de2d1263fb:   movabs $0x73ddeca1d2a0,%rdi         ;   {metadata(method data for {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d126405:   mov    0xf4(%rdi),%ebx
+  0x000073de2d12640b:   add    $0x2,%ebx
+  0x000073de2d12640e:   mov    %ebx,0xf4(%rdi)
+  0x000073de2d126414:   and    $0x7fe,%ebx
+  0x000073de2d12641a:   test   %ebx,%ebx
+  0x000073de2d12641c:   je     0x000073de2d12663e
+  0x000073de2d126422:   mov    $0x0,%edi
+  0x000073de2d126427:   vxorps %xmm0,%xmm0,%xmm0
+  0x000073de2d12642b:   vmovss %xmm0,0x54(%rsp)
+  0x000073de2d126431:   jmp    0x000073de2d126579
+  0x000073de2d126436:   xchg   %ax,%ax
+  0x000073de2d126438:   mov    %rdi,%rax
+  0x000073de2d12643b:   mov    $0x40,%ecx
+  0x000073de2d126440:   cmp    $0x80000000,%eax
+  0x000073de2d126445:   jne    0x000073de2d126456
+  0x000073de2d12644b:   xor    %edx,%edx
+  0x000073de2d12644d:   cmp    $0xffffffff,%ecx
+  0x000073de2d126450:   je     0x000073de2d126459
+  0x000073de2d126456:   cltd
+  0x000073de2d126457:   idiv   %ecx                         ; implicit exception: dispatches to 0x000073de2d12665f
+  0x000073de2d126459:   mov    %rdx,%rcx
+  0x000073de2d12645c:   mov    %rdi,%rax
+  0x000073de2d12645f:   mov    $0x10,%r8d
+  0x000073de2d126465:   cmp    $0x80000000,%eax
+  0x000073de2d12646a:   jne    0x000073de2d12647c
+  0x000073de2d126470:   xor    %edx,%edx
+  0x000073de2d126472:   cmp    $0xffffffff,%r8d
+  0x000073de2d126476:   je     0x000073de2d126480
+  0x000073de2d12647c:   cltd
+  0x000073de2d12647d:   idiv   %r8d                         ; implicit exception: dispatches to 0x000073de2d126664
+  0x000073de2d126480:   mov    %rdx,%r8
+  0x000073de2d126483:   mov    %rdi,%rax
+  0x000073de2d126486:   mov    $0x1c,%r9d
+  0x000073de2d12648c:   cmp    $0x80000000,%eax
+  0x000073de2d126491:   jne    0x000073de2d1264a3
+  0x000073de2d126497:   xor    %edx,%edx
+  0x000073de2d126499:   cmp    $0xffffffff,%r9d
+  0x000073de2d12649d:   je     0x000073de2d1264a7
+  0x000073de2d1264a3:   cltd
+  0x000073de2d1264a4:   idiv   %r9d                         ; implicit exception: dispatches to 0x000073de2d126669
+  0x000073de2d1264a7:   mov    %rdx,%r9
+  0x000073de2d1264aa:   mov    %rdi,%rax
+  0x000073de2d1264ad:   mov    $0x20,%ebx
+  0x000073de2d1264b2:   cmp    $0x80000000,%eax
+  0x000073de2d1264b7:   jne    0x000073de2d1264c8
+  0x000073de2d1264bd:   xor    %edx,%edx
+  0x000073de2d1264bf:   cmp    $0xffffffff,%ebx
+  0x000073de2d1264c2:   je     0x000073de2d1264cb
+  0x000073de2d1264c8:   cltd
+  0x000073de2d1264c9:   idiv   %ebx                         ; implicit exception: dispatches to 0x000073de2d12666e
+  0x000073de2d1264cb:   mov    %rdx,%rbx
+  0x000073de2d1264ce:   mov    0x1c(%rsi),%eax              ; implicit exception: dispatches to 0x000073de2d126673
+  0x000073de2d1264d1:   cmp    (%rax),%rax                  ; implicit exception: dispatches to 0x000073de2d126678
+  0x000073de2d1264d4:   mov    %rax,%rdx
+  0x000073de2d1264d7:   movabs $0x73ddeca1d2a0,%r11         ;   {metadata(method data for {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d1264e1:   movabs $0x400dc240,%r10             ;   {metadata('com/mpataki/Tensor4D')}
+  0x000073de2d1264eb:   mov    %r10,0x160(%r11)
+  0x000073de2d1264f2:   addq   $0x1,0x168(%r11)
+  0x000073de2d1264fa:   mov    %rcx,%rdx
+  0x000073de2d1264fd:   mov    %r8,%rcx
+  0x000073de2d126500:   mov    %r9,%r8
+  0x000073de2d126503:   mov    %rbx,%r9
+  0x000073de2d126506:   mov    %rsi,0x48(%rsp)
+  0x000073de2d12650b:   mov    %rax,%rsi
+  0x000073de2d12650e:   mov    %edi,0x3c(%rsp)
+  0x000073de2d126512:   nopl   0x0(%rax,%rax,1)
+  0x000073de2d126517:   call   0x000073de34843890           ; ImmutableOopMap {[72]=Oop }
+                                                            ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ;   {optimized virtual_call}
+  0x000073de2d12651c:   nopl   0x294(%rax,%rax,1)           ;   {post_call_nop}
+  0x000073de2d126524:   vaddss 0x54(%rsp),%xmm0,%xmm0
+  0x000073de2d12652a:   mov    0x3c(%rsp),%edi
+  0x000073de2d12652e:   inc    %edi
+  0x000073de2d126530:   movabs $0x73ddeca1d2a0,%rsi         ;   {metadata(method data for {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d12653a:   mov    0xf8(%rsi),%ebx
+  0x000073de2d126540:   add    $0x2,%ebx
+  0x000073de2d126543:   mov    %ebx,0xf8(%rsi)
+  0x000073de2d126549:   and    $0x3ffe,%ebx
+  0x000073de2d12654f:   test   %ebx,%ebx
+  0x000073de2d126551:   je     0x000073de2d12667d
+  0x000073de2d126557:   mov    0x30(%r15),%r10              ; ImmutableOopMap {[72]=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+  0x000073de2d12655b:   test   %eax,(%r10)                  ;   {poll}
+  0x000073de2d12655e:   movabs $0x73ddeca1d2a0,%rsi         ;   {metadata(method data for {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d126568:   incl   0x188(%rsi)
+  0x000073de2d12656e:   vmovss %xmm0,0x54(%rsp)
+  0x000073de2d126574:   mov    0x48(%rsp),%rsi
+  0x000073de2d126579:   cmp    $0xf4240,%edi
+  0x000073de2d12657f:   movabs $0x73ddeca1d2a0,%rax         ;   {metadata(method data for {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d126589:   mov    $0x148,%edx
+  0x000073de2d12658e:   jl     0x000073de2d126595
+  0x000073de2d126590:   mov    $0x138,%edx
+  0x000073de2d126595:   mov    (%rax,%rdx,1),%rcx
+  0x000073de2d126599:   lea    0x1(%rcx),%rcx
+  0x000073de2d12659d:   mov    %rcx,(%rax,%rdx,1)
+  0x000073de2d1265a1:   jl     0x000073de2d126438
+  0x000073de2d1265a7:   vmovss 0x54(%rsp),%xmm0
+  0x000073de2d1265ad:   add    $0x60,%rsp
+  0x000073de2d1265b1:   pop    %rbp
+  0x000073de2d1265b2:   cmp    0x28(%r15),%rsp              ;   {poll_return}
+  0x000073de2d1265b6:   ja     0x000073de2d12669e
+  0x000073de2d1265bc:   ret
+  0x000073de2d1265bd:   mov    %eax,-0x14000(%rsp)
+  0x000073de2d1265c4:   push   %rbp
+  0x000073de2d1265c5:   sub    $0x60,%rsp
+  0x000073de2d1265c9:   data16 xchg %ax,%ax
+  0x000073de2d1265cc:   cmpl   $0x0,0x20(%r15)
+  0x000073de2d1265d4:   je     0x000073de2d1265db
+  0x000073de2d1265d6:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x000073de2d1265db:   mov    $0x30,%edi
+  0x000073de2d1265e0:   movslq %edi,%rdi
+  0x000073de2d1265e3:   mov    (%rsi,%rdi,1),%rbx
+  0x000073de2d1265e7:   mov    $0x28,%edi
+  0x000073de2d1265ec:   movslq %edi,%rdi
+  0x000073de2d1265ef:   vmovss (%rsi,%rdi,1),%xmm0
+  0x000073de2d1265f4:   mov    $0x20,%edi
+  0x000073de2d1265f9:   movslq %edi,%rdi
+  0x000073de2d1265fc:   mov    (%rsi,%rdi,1),%eax
+  0x000073de2d1265ff:   mov    %rsi,%rdi
+  0x000073de2d126602:   mov    %rbx,0x40(%rsp)
+  0x000073de2d126607:   mov    %eax,0x38(%rsp)
+  0x000073de2d12660b:   vmovss %xmm0,0x50(%rsp)
+  0x000073de2d126611:   call   0x000073de44a52190           ;   {runtime_call SharedRuntime::OSR_migration_end(long*)}
+  0x000073de2d126616:   nopl   0x0(%rax,%rax,1)             ;   {post_call_nop}
+  0x000073de2d12661e:   mov    0x38(%rsp),%eax
+  0x000073de2d126622:   mov    %rax,%rdi
+  0x000073de2d126625:   vmovss 0x50(%rsp),%xmm0
+  0x000073de2d12662b:   mov    0x40(%rsp),%rbx
+  0x000073de2d126630:   mov    %rbx,%rsi
+  0x000073de2d126633:   vmovss %xmm0,0x54(%rsp)
+  0x000073de2d126639:   jmp    0x000073de2d126579
+  0x000073de2d12663e:   movabs $0x73ddec95e080,%r10         ;   {metadata({method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d126648:   mov    %r10,0x8(%rsp)
+  0x000073de2d12664d:   movq   $0xffffffffffffffff,(%rsp)
+  0x000073de2d126655:   call   0x000073de345123e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*synchronization entry
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@-1 (line 20)
+                                                            ;   {runtime_call C1 Runtime counter_overflow_blob}
+  0x000073de2d12665a:   jmp    0x000073de2d126422
+  0x000073de2d12665f:   call   0x000073de3450d1e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@13 (line 22)
+                                                            ;   {runtime_call C1 Runtime throw_div0_exception_blob}
+  0x000073de2d126664:   call   0x000073de3450d1e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@18 (line 23)
+                                                            ;   {runtime_call C1 Runtime throw_div0_exception_blob}
+  0x000073de2d126669:   call   0x000073de3450d1e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@24 (line 24)
+                                                            ;   {runtime_call C1 Runtime throw_div0_exception_blob}
+  0x000073de2d12666e:   call   0x000073de3450d1e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@30 (line 25)
+                                                            ;   {runtime_call C1 Runtime throw_div0_exception_blob}
+  0x000073de2d126673:   call   0x000073de3450d4e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*getfield tensor {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@35 (line 26)
+                                                            ;   {runtime_call C1 Runtime throw_null_pointer_exception_blob}
+  0x000073de2d126678:   call   0x000073de3450d4e0           ; ImmutableOopMap {rsi=Oop rax=Oop }
+                                                            ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ;   {runtime_call C1 Runtime throw_null_pointer_exception_blob}
+  0x000073de2d12667d:   movabs $0x73ddec95e080,%r10         ;   {metadata({method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d126687:   mov    %r10,0x8(%rsp)
+  0x000073de2d12668c:   movq   $0x35,(%rsp)
+  0x000073de2d126694:   call   0x000073de345123e0           ; ImmutableOopMap {[72]=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+                                                            ;   {runtime_call C1 Runtime counter_overflow_blob}
+  0x000073de2d126699:   jmp    0x000073de2d126557
+  0x000073de2d12669e:   movabs $0x73de2d1265b2,%r10         ;   {internal_word}
+  0x000073de2d1266a8:   mov    %r10,0x460(%r15)
+  0x000073de2d1266af:   jmp    0x000073de344558e0           ;   {runtime_call SafepointBlob}
+  0x000073de2d1266b4:   mov    0x508(%r15),%rax
+  0x000073de2d1266bb:   movq   $0x0,0x508(%r15)
+  0x000073de2d1266c6:   movq   $0x0,0x510(%r15)
+  0x000073de2d1266d1:   add    $0x60,%rsp
+  0x000073de2d1266d5:   pop    %rbp
+  0x000073de2d1266d6:   jmp    0x000073de3450c5e0           ;   {runtime_call C1 Runtime unwind_exception_blob}
+  0x000073de2d1266db:   hlt
+  0x000073de2d1266dc:   hlt
+  0x000073de2d1266dd:   hlt
+  0x000073de2d1266de:   hlt
+  0x000073de2d1266df:   hlt
+[Stub Code]
+  0x000073de2d1266e0:   nopl   0x0(%rax,%rax,1)             ;   {no_reloc}
+  0x000073de2d1266e5:   movabs $0x0,%rbx                    ;   {static_stub}
+  0x000073de2d1266ef:   jmp    0x000073de2d1266ef           ;   {runtime_call nmethod}
+[Exception Handler]
+  0x000073de2d1266f4:   call   0x000073de3450f2e0           ;   {runtime_call C1 Runtime handle_exception_from_callee_blob}
+  0x000073de2d1266f9:   movabs $0x73de44dc0632,%rdi         ;   {external_word}
+  0x000073de2d126703:   and    $0xfffffffffffffff0,%rsp
+  0x000073de2d126707:   call   0x000073de4486f4b0           ;   {runtime_call MacroAssembler::debug64(char*, long, long*)}
+  0x000073de2d12670c:   hlt
+[Deopt Handler Code]
+  0x000073de2d12670d:   movabs $0x73de2d12670d,%r10         ;   {section_word}
+  0x000073de2d126717:   push   %r10
+  0x000073de2d126719:   jmp    0x000073de34454e80           ;   {runtime_call DeoptimizationBlob}
+  0x000073de2d12671e:   hlt
+  0x000073de2d12671f:   hlt
+--------------------------------------------------------------------------------
+[/Disassembly]
+
+============================= C2-compiled nmethod ==============================
+----------------------------------- Assembly -----------------------------------
+
+Compiled method (c2) 606  943 %     4       com.mpataki.Tensor4DBenchmark::realTest @ 4 (58 bytes)
+ total in heap  [0x000073de34843a88,0x000073de34843fc0] = 1336
+ relocation     [0x000073de34843b60,0x000073de34843b88] = 40
+ main code      [0x000073de34843ba0,0x000073de34843f88] = 1000
+ stub code      [0x000073de34843f88,0x000073de34843fa0] = 24
+ oops           [0x000073de34843fa0,0x000073de34843fa8] = 8
+ metadata       [0x000073de34843fa8,0x000073de34843fc0] = 24
+ immutable data [0x000073ddcc10a360,0x000073ddcc10a478] = 280
+ dependencies   [0x000073ddcc10a360,0x000073ddcc10a370] = 16
+ nul chk table  [0x000073ddcc10a370,0x000073ddcc10a388] = 24
+ scopes pcs     [0x000073ddcc10a388,0x000073ddcc10a3f8] = 112
+ scopes data    [0x000073ddcc10a3f8,0x000073ddcc10a478] = 128
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+add    %al,(%rax)
+[Verified Entry Point]
+  # {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark'
+  0x000073de34843ba0:   call   0x000073de4498db70           ;   {runtime_call os::breakpoint()}
+  0x000073de34843ba5:   data16 data16 nopw 0x0(%rax,%rax,1)
+  0x000073de34843bb0:   mov    %eax,-0x14000(%rsp)
+  0x000073de34843bb7:   push   %rbp
+  0x000073de34843bb8:   sub    $0x20,%rsp
+  0x000073de34843bbc:   cmpl   $0x1,0x20(%r15)
+  0x000073de34843bc4:   jne    0x000073de34843f7c
+  0x000073de34843bca:   mov    0x30(%rsi),%rbp
+  0x000073de34843bce:   vmovss 0x28(%rsi),%xmm0
+  0x000073de34843bd3:   vmovss %xmm0,(%rsp)
+  0x000073de34843bd8:   mov    0x20(%rsi),%ebx
+  0x000073de34843bdb:   mov    %rsi,%rdi
+  0x000073de34843bde:   movabs $0x73de44a52190,%r10
+  0x000073de34843be8:   call   *%r10
+  0x000073de34843beb:   nopl   0x0(%rax,%rax,1)             ;   {post_call_nop}
+  0x000073de34843bf3:   test   %rbp,%rbp
+  0x000073de34843bf6:   je     0x000073de34843e8d
+  0x000073de34843bfc:   mov    0x8(%rbp),%r10d
+  0x000073de34843c00:   movabs $0x400d29f0,%r11             ;   {metadata('com/mpataki/Tensor4DBenchmark')}
+  0x000073de34843c0a:   mov    %r10d,%r8d
+  0x000073de34843c0d:   mov    0x38(%r8),%r10
+  0x000073de34843c11:   cmp    %r11,%r10
+  0x000073de34843c14:   jne    0x000073de34843f58
+  0x000073de34843c1a:   mov    0x1c(%rbp),%ecx
+  0x000073de34843c1d:   data16 xchg %ax,%ax
+  0x000073de34843c20:   mov    0x1c(%rcx),%eax              ; implicit exception: dispatches to 0x000073de34843e8f
+  0x000073de34843c23:   mov    0xc(%rax),%r13d              ; implicit exception: dispatches to 0x000073de34843e8f
+  0x000073de34843c27:   cmp    $0xf4240,%ebx
+  0x000073de34843c2d:   jge    0x000073de34843f3d
+  0x000073de34843c33:   mov    0x18(%rcx),%r10d
+  0x000073de34843c37:   mov    0x14(%rcx),%r11d
+  0x000073de34843c3b:   mov    %r11d,%r9d
+  0x000073de34843c3e:   imul   0x10(%rcx),%r9d
+  0x000073de34843c43:   imul   %r10d,%r11d
+  0x000073de34843c47:   imul   %r10d,%r9d
+  0x000073de34843c4b:   mov    %ebx,%r8d
+  0x000073de34843c4e:   inc    %r8d
+  0x000073de34843c51:   movslq %ebx,%rcx
+  0x000073de34843c54:   mov    %ebx,%edi
+  0x000073de34843c56:   sar    $0x1f,%edi
+  0x000073de34843c59:   imul   $0xffffffff92492493,%rcx,%rsi
+  0x000073de34843c60:   mov    %edi,%edx
+  0x000073de34843c62:   shr    $0x1c,%edx
+  0x000073de34843c65:   add    %ebx,%edx
+  0x000073de34843c67:   sar    $0x20,%rsi
+  0x000073de34843c6b:   and    $0xfffffff0,%edx
+  0x000073de34843c6e:   mov    %ebx,%ecx
+  0x000073de34843c70:   sub    %edx,%ecx
+  0x000073de34843c72:   imul   %r11d,%ecx
+  0x000073de34843c76:   mov    %esi,%esi
+  0x000073de34843c78:   add    %ebx,%esi
+  0x000073de34843c7a:   mov    %edi,%r14d
+  0x000073de34843c7d:   shr    $0x1a,%r14d
+  0x000073de34843c81:   add    %ebx,%r14d
+  0x000073de34843c84:   sar    $0x4,%esi
+  0x000073de34843c87:   sub    %edi,%esi
+  0x000073de34843c89:   and    $0xffffffc0,%r14d
+  0x000073de34843c8d:   mov    %ebx,%edx
+  0x000073de34843c8f:   sub    %r14d,%edx
+  0x000073de34843c92:   imul   %r9d,%edx
+  0x000073de34843c96:   add    %ecx,%edx
+  0x000073de34843c98:   imul   $0x1c,%esi,%ecx
+  0x000073de34843c9b:   mov    %ebx,%r14d
+  0x000073de34843c9e:   sub    %ecx,%r14d
+  0x000073de34843ca1:   imul   %r10d,%r14d
+  0x000073de34843ca5:   add    %r14d,%edx
+  0x000073de34843ca8:   shr    $0x1b,%edi
+  0x000073de34843cab:   add    %ebx,%edi
+  0x000073de34843cad:   and    $0xffffffe0,%edi
+  0x000073de34843cb0:   mov    %ebx,%ecx
+  0x000073de34843cb2:   sub    %edi,%ecx
+  0x000073de34843cb4:   add    %ecx,%edx
+  0x000073de34843cb6:   cmp    %r13d,%edx
+  0x000073de34843cb9:   jae    0x000073de34843e84
+  0x000073de34843cbf:   vmovss (%rsp),%xmm1
+  0x000073de34843cc4:   vaddss 0x10(%rax,%rdx,4),%xmm1,%xmm2
+  0x000073de34843cca:   inc    %ebx
+  0x000073de34843ccc:   cmp    %r8d,%ebx
+  0x000073de34843ccf:   jge    0x000073de34843cdb
+  0x000073de34843cd1:   vmovss %xmm2,(%rsp)
+  0x000073de34843cd6:   jmp    0x000073de34843c51
+  0x000073de34843cdb:   nopl   0x0(%rax,%rax,1)
+  0x000073de34843ce0:   cmp    $0xf423f,%ebx
+  0x000073de34843ce6:   jge    0x000073de34843ead
+  0x000073de34843cec:   mov    $0xf423f,%esi
+  0x000073de34843cf1:   sub    %ebx,%esi
+  0x000073de34843cf3:   xor    %r8d,%r8d
+  0x000073de34843cf6:   cmp    $0xf423f,%ebx
+  0x000073de34843cfc:   cmovg  %r8d,%esi                    ;   {no_reloc}
+  0x000073de34843d00:   cmp    $0x7d0,%esi
+  0x000073de34843d06:   mov    $0x7d0,%r8d
+  0x000073de34843d0c:   cmova  %r8d,%esi
+  0x000073de34843d10:   add    %ebx,%esi
+  0x000073de34843d12:   vmovq  %rbp,%xmm0
+  0x000073de34843d17:   nopw   0x0(%rax,%rax,1)
+  0x000073de34843d20:   movslq %ebx,%r8
+  0x000073de34843d23:   mov    %ebx,%ebp
+  0x000073de34843d25:   sar    $0x1f,%ebp
+  0x000073de34843d28:   imul   $0xffffffff92492493,%r8,%r8
+  0x000073de34843d2f:   mov    %ebp,%ecx
+  0x000073de34843d31:   shr    $0x1c,%ecx
+  0x000073de34843d34:   add    %ebx,%ecx
+  0x000073de34843d36:   sar    $0x20,%r8
+  0x000073de34843d3a:   and    $0xfffffff0,%ecx
+  0x000073de34843d3d:   mov    %ebx,%r14d
+  0x000073de34843d40:   sub    %ecx,%r14d
+  0x000073de34843d43:   imul   %r11d,%r14d
+  0x000073de34843d47:   mov    %r8d,%r8d
+  0x000073de34843d4a:   add    %ebx,%r8d
+  0x000073de34843d4d:   mov    %ebp,%edi
+  0x000073de34843d4f:   shr    $0x1a,%edi
+  0x000073de34843d52:   add    %ebx,%edi
+  0x000073de34843d54:   sar    $0x4,%r8d
+  0x000073de34843d58:   sub    %ebp,%r8d
+  0x000073de34843d5b:   and    $0xffffffc0,%edi
+  0x000073de34843d5e:   mov    %ebx,%edx
+  0x000073de34843d60:   sub    %edi,%edx
+  0x000073de34843d62:   imul   %r9d,%edx
+  0x000073de34843d66:   add    %r14d,%edx
+  0x000073de34843d69:   imul   $0x1c,%r8d,%ecx
+  0x000073de34843d6d:   mov    %ebx,%edi
+  0x000073de34843d6f:   sub    %ecx,%edi
+  0x000073de34843d71:   imul   %r10d,%edi
+  0x000073de34843d75:   add    %edi,%edx
+  0x000073de34843d77:   shr    $0x1b,%ebp
+  0x000073de34843d7a:   add    %ebx,%ebp
+  0x000073de34843d7c:   and    $0xffffffe0,%ebp
+  0x000073de34843d7f:   mov    %ebx,%r8d
+  0x000073de34843d82:   sub    %ebp,%r8d
+  0x000073de34843d85:   add    %r8d,%edx
+  0x000073de34843d88:   cmp    %r13d,%edx
+  0x000073de34843d8b:   jae    0x000073de34843e57
+  0x000073de34843d91:   vaddss 0x10(%rax,%rdx,4),%xmm2,%xmm2
+  0x000073de34843d97:   mov    %ebx,%edi
+  0x000073de34843d99:   inc    %edi
+  0x000073de34843d9b:   movslq %edi,%r8
+  0x000073de34843d9e:   mov    %edi,%ebp
+  0x000073de34843da0:   sar    $0x1f,%ebp
+  0x000073de34843da3:   imul   $0xffffffff92492493,%r8,%r8
+  0x000073de34843daa:   mov    %ebp,%ecx
+  0x000073de34843dac:   shr    $0x1c,%ecx
+  0x000073de34843daf:   add    %ebx,%ecx
+  0x000073de34843db1:   sar    $0x20,%r8
+  0x000073de34843db5:   inc    %ecx
+  0x000073de34843db7:   mov    %r8d,%r8d
+  0x000073de34843dba:   add    %ebx,%r8d
+  0x000073de34843dbd:   and    $0xfffffff0,%ecx
+  0x000073de34843dc0:   mov    %ebx,%r14d
+  0x000073de34843dc3:   sub    %ecx,%r14d
+  0x000073de34843dc6:   inc    %r8d
+  0x000073de34843dc9:   inc    %r14d
+  0x000073de34843dcc:   imul   %r11d,%r14d
+  0x000073de34843dd0:   sar    $0x4,%r8d
+  0x000073de34843dd4:   sub    %ebp,%r8d
+  0x000073de34843dd7:   mov    %ebp,%edx
+  0x000073de34843dd9:   shr    $0x1a,%edx
+  0x000073de34843ddc:   add    %ebx,%edx
+  0x000073de34843dde:   imul   $0x1c,%r8d,%r8d
+  0x000073de34843de2:   mov    %ebx,%ecx
+  0x000073de34843de4:   sub    %r8d,%ecx
+  0x000073de34843de7:   inc    %edx
+  0x000073de34843de9:   inc    %ecx
+  0x000073de34843deb:   imul   %r10d,%ecx
+  0x000073de34843def:   and    $0xffffffc0,%edx
+  0x000073de34843df2:   mov    %ebx,%r8d
+  0x000073de34843df5:   sub    %edx,%r8d
+  0x000073de34843df8:   shr    $0x1b,%ebp
+  0x000073de34843dfb:   add    %ebx,%ebp
+  0x000073de34843dfd:   inc    %r8d                         ;   {no_reloc}
+  0x000073de34843e00:   imul   %r9d,%r8d
+  0x000073de34843e04:   add    %r14d,%r8d
+  0x000073de34843e07:   add    %ecx,%r8d
+  0x000073de34843e0a:   inc    %ebp
+  0x000073de34843e0c:   and    $0xffffffe0,%ebp
+  0x000073de34843e0f:   mov    %ebx,%ecx
+  0x000073de34843e11:   sub    %ebp,%ecx
+  0x000073de34843e13:   add    %ecx,%r8d
+  0x000073de34843e16:   mov    %r8d,%edx
+  0x000073de34843e19:   inc    %edx
+  0x000073de34843e1b:   nopl   0x0(%rax,%rax,1)
+  0x000073de34843e20:   cmp    %r13d,%edx
+  0x000073de34843e23:   jae    0x000073de34843e59
+  0x000073de34843e25:   movslq %r8d,%r8
+  0x000073de34843e28:   vaddss 0x14(%rax,%r8,4),%xmm2,%xmm2
+  0x000073de34843e2f:   add    $0x2,%ebx
+  0x000073de34843e32:   cmp    %esi,%ebx
+  0x000073de34843e34:   jl     0x000073de34843d20
+  0x000073de34843e3a:   mov    0x30(%r15),%r8               ; ImmutableOopMap {rax=NarrowOop xmm0=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+  0x000073de34843e3e:   test   %eax,(%r8)                   ;   {poll}
+  0x000073de34843e41:   cmp    $0xf423f,%ebx
+  0x000073de34843e47:   jge    0x000073de34843ea8
+  0x000073de34843e4d:   vmovq  %xmm0,%rbp
+  0x000073de34843e52:   jmp    0x000073de34843cec
+  0x000073de34843e57:   mov    %ebx,%edi
+  0x000073de34843e59:   vmovq  %xmm0,%rbp
+  0x000073de34843e5e:   vmovss %xmm2,(%rsp)
+  0x000073de34843e63:   mov    $0xffffffe4,%esi
+  0x000073de34843e68:   mov    %edi,0x4(%rsp)
+  0x000073de34843e6c:   mov    %eax,0x8(%rsp)
+  0x000073de34843e70:   mov    %edx,0xc(%rsp)
+  0x000073de34843e74:   data16 xchg %ax,%ax
+  0x000073de34843e77:   call   0x000073de345141e0           ; ImmutableOopMap {rbp=Oop [8]=NarrowOop }
+                                                            ;*faload {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::get@44 (line 20)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000073de34843e7c:   nopl   0x10003f4(%rax,%rax,1)       ;   {post_call_nop}
+  0x000073de34843e84:   mov    %ebx,%edi
+  0x000073de34843e86:   vmovss (%rsp),%xmm2
+  0x000073de34843e8b:   jmp    0x000073de34843e5e
+  0x000073de34843e8d:   xor    %ebp,%ebp
+  0x000073de34843e8f:   mov    $0xffffff76,%esi
+  0x000073de34843e94:   mov    %ebx,0x4(%rsp)
+  0x000073de34843e98:   data16 xchg %ax,%ax
+  0x000073de34843e9b:   call   0x000073de345141e0           ; ImmutableOopMap {rbp=Oop }
+                                                            ;*iload_2 {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@4 (line 21)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000073de34843ea0:   nopl   0x2000418(%rax,%rax,1)       ;   {post_call_nop}
+  0x000073de34843ea8:   vmovq  %xmm0,%rbp
+  0x000073de34843ead:   cmp    $0xf4240,%ebx
+  0x000073de34843eb3:   jge    0x000073de34843f37
+  0x000073de34843eb9:   data16 xchg %ax,%ax
+  0x000073de34843ebc:   movslq %ebx,%rcx
+  0x000073de34843ebf:   mov    %ebx,%r8d
+  0x000073de34843ec2:   sar    $0x1f,%r8d
+  0x000073de34843ec6:   imul   $0xffffffff92492493,%rcx,%rcx
+  0x000073de34843ecd:   mov    %r8d,%esi
+  0x000073de34843ed0:   shr    $0x1c,%esi
+  0x000073de34843ed3:   add    %ebx,%esi
+  0x000073de34843ed5:   sar    $0x20,%rcx
+  0x000073de34843ed9:   and    $0xfffffff0,%esi
+  0x000073de34843edc:   mov    %ebx,%edi
+  0x000073de34843ede:   sub    %esi,%edi
+  0x000073de34843ee0:   imul   %r11d,%edi
+  0x000073de34843ee4:   mov    %ecx,%ecx
+  0x000073de34843ee6:   add    %ebx,%ecx
+  0x000073de34843ee8:   mov    %r8d,%esi
+  0x000073de34843eeb:   shr    $0x1a,%esi
+  0x000073de34843eee:   add    %ebx,%esi
+  0x000073de34843ef0:   sar    $0x4,%ecx
+  0x000073de34843ef3:   sub    %r8d,%ecx
+  0x000073de34843ef6:   and    $0xffffffc0,%esi
+  0x000073de34843ef9:   mov    %ebx,%edx
+  0x000073de34843efb:   sub    %esi,%edx
+  0x000073de34843efd:   imul   %r9d,%edx
+  0x000073de34843f01:   add    %edi,%edx
+  0x000073de34843f03:   imul   $0x1c,%ecx,%edi
+  0x000073de34843f06:   mov    %ebx,%esi
+  0x000073de34843f08:   sub    %edi,%esi
+  0x000073de34843f0a:   imul   %r10d,%esi
+  0x000073de34843f0e:   add    %esi,%edx
+  0x000073de34843f10:   shr    $0x1b,%r8d
+  0x000073de34843f14:   add    %ebx,%r8d
+  0x000073de34843f17:   and    $0xffffffe0,%r8d
+  0x000073de34843f1b:   mov    %ebx,%ecx
+  0x000073de34843f1d:   sub    %r8d,%ecx
+  0x000073de34843f20:   add    %ecx,%edx
+  0x000073de34843f22:   cmp    %r13d,%edx
+  0x000073de34843f25:   jae    0x000073de34843f70
+  0x000073de34843f27:   vaddss 0x10(%rax,%rdx,4),%xmm2,%xmm2
+  0x000073de34843f2d:   inc    %ebx
+  0x000073de34843f2f:   cmp    $0xf4240,%ebx
+  0x000073de34843f35:   jl     0x000073de34843ebc
+  0x000073de34843f37:   vmovd  %xmm2,%ebp
+  0x000073de34843f3b:   jmp    0x000073de34843f40
+  0x000073de34843f3d:   mov    (%rsp),%ebp
+  0x000073de34843f40:   mov    $0xffffff4d,%esi
+  0x000073de34843f45:   mov    %ebx,(%rsp)
+  0x000073de34843f48:   data16 xchg %ax,%ax
+  0x000073de34843f4b:   call   0x000073de345141e0           ; ImmutableOopMap {}
+                                                            ;*if_icmpge {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@7 (line 21)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000073de34843f50:   nopl   0x30004c8(%rax,%rax,1)       ;   {post_call_nop}
+  0x000073de34843f58:   mov    $0xffffff8d,%esi
+  0x000073de34843f5d:   mov    %ebx,0x4(%rsp)
+  0x000073de34843f61:   xchg   %ax,%ax
+  0x000073de34843f63:   call   0x000073de345141e0           ; ImmutableOopMap {rbp=Oop }
+                                                            ;*iload_2 {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@4 (line 21)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000073de34843f68:   nopl   0x40004e0(%rax,%rax,1)       ;   {post_call_nop}
+  0x000073de34843f70:   vmovss %xmm2,(%rsp)
+  0x000073de34843f75:   mov    %ebx,%edi
+  0x000073de34843f77:   jmp    0x000073de34843e63
+  0x000073de34843f7c:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x000073de34843f81:   jmp    0x000073de34843bca
+  0x000073de34843f86:   hlt
+  0x000073de34843f87:   hlt
+[Exception Handler]
+  0x000073de34843f88:   jmp    0x000073de345144e0           ;   {no_reloc}
+[Deopt Handler Code]
+  0x000073de34843f8d:   call   0x000073de34843f92
+  0x000073de34843f92:   subq   $0x5,(%rsp)
+  0x000073de34843f97:   jmp    0x000073de34454e80           ;   {runtime_call DeoptimizationBlob}
+  0x000073de34843f9c:   hlt
+  0x000073de34843f9d:   hlt
+  0x000073de34843f9e:   hlt
+  0x000073de34843f9f:   hlt
+--------------------------------------------------------------------------------
+[/Disassembly]
+
+============================= C1-compiled nmethod ==============================
+----------------------------------- Assembly -----------------------------------
+
+Compiled method (c1) 614  944 %     3       com.mpataki.Tensor4DBenchmark::realTest @ 4 (58 bytes)
+ total in heap  [0x000073de2d126788,0x000073de2d126c28] = 1184
+ relocation     [0x000073de2d126860,0x000073de2d1268b8] = 88
+ main code      [0x000073de2d1268c0,0x000073de2d126bd0] = 784
+ stub code      [0x000073de2d126bd0,0x000073de2d126c10] = 64
+ oops           [0x000073de2d126c10,0x000073de2d126c18] = 8
+ metadata       [0x000073de2d126c18,0x000073de2d126c28] = 16
+ immutable data [0x000073ddd026cb20,0x000073ddd026cca0] = 384
+ dependencies   [0x000073ddd026cb20,0x000073ddd026cb28] = 8
+ nul chk table  [0x000073ddd026cb28,0x000073ddd026cb60] = 56
+ scopes pcs     [0x000073ddd026cb60,0x000073ddd026cc20] = 192
+ scopes data    [0x000073ddd026cc20,0x000073ddd026cca0] = 128
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+add    %al,(%rax)
+[Instructions begin]
+  0x000073de2d1268c0:   data16 data16 nopw 0x0(%rax,%rax,1)
+  0x000073de2d1268cb:   data16 data16 xchg %ax,%ax
+  0x000073de2d1268cf:   data16 xchg %ax,%ax
+[Entry Point]
+  # {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark'
+  0x000073de2d1268d2:   mov    0x8(%rsi),%r10d
+  0x000073de2d1268d6:   cmp    0x8(%rax),%r10d
+  0x000073de2d1268da:   jne    0x000073de3444e060           ;   {runtime_call Shared Runtime ic_miss_blob}
+[Verified Entry Point]
+  0x000073de2d1268e0:   mov    %eax,-0x14000(%rsp)
+  0x000073de2d1268e7:   push   %rbp
+  0x000073de2d1268e8:   sub    $0x60,%rsp
+  0x000073de2d1268ec:   cmpl   $0x1,0x20(%r15)
+  0x000073de2d1268f4:   je     0x000073de2d1268fb
+  0x000073de2d1268f6:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x000073de2d1268fb:   movabs $0x73ddeca1d2a0,%rdi         ;   {metadata(method data for {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d126905:   mov    0xf4(%rdi),%ebx
+  0x000073de2d12690b:   add    $0x2,%ebx
+  0x000073de2d12690e:   mov    %ebx,0xf4(%rdi)
+  0x000073de2d126914:   and    $0x7fe,%ebx
+  0x000073de2d12691a:   test   %ebx,%ebx
+  0x000073de2d12691c:   je     0x000073de2d126b2e
+  0x000073de2d126922:   mov    $0x0,%edi
+  0x000073de2d126927:   vxorps %xmm0,%xmm0,%xmm0
+  0x000073de2d12692b:   vmovss %xmm0,0x54(%rsp)
+  0x000073de2d126931:   jmp    0x000073de2d126a69
+  0x000073de2d126936:   xchg   %ax,%ax
+  0x000073de2d126938:   mov    %rdi,%rax
+  0x000073de2d12693b:   mov    $0x40,%ecx
+  0x000073de2d126940:   cmp    $0x80000000,%eax
+  0x000073de2d126945:   jne    0x000073de2d126956
+  0x000073de2d12694b:   xor    %edx,%edx
+  0x000073de2d12694d:   cmp    $0xffffffff,%ecx
+  0x000073de2d126950:   je     0x000073de2d126959
+  0x000073de2d126956:   cltd
+  0x000073de2d126957:   idiv   %ecx                         ; implicit exception: dispatches to 0x000073de2d126b4f
+  0x000073de2d126959:   mov    %rdx,%rcx
+  0x000073de2d12695c:   mov    %rdi,%rax
+  0x000073de2d12695f:   mov    $0x10,%r8d
+  0x000073de2d126965:   cmp    $0x80000000,%eax
+  0x000073de2d12696a:   jne    0x000073de2d12697c
+  0x000073de2d126970:   xor    %edx,%edx
+  0x000073de2d126972:   cmp    $0xffffffff,%r8d
+  0x000073de2d126976:   je     0x000073de2d126980
+  0x000073de2d12697c:   cltd
+  0x000073de2d12697d:   idiv   %r8d                         ; implicit exception: dispatches to 0x000073de2d126b54
+  0x000073de2d126980:   mov    %rdx,%r8
+  0x000073de2d126983:   mov    %rdi,%rax
+  0x000073de2d126986:   mov    $0x1c,%r9d
+  0x000073de2d12698c:   cmp    $0x80000000,%eax
+  0x000073de2d126991:   jne    0x000073de2d1269a3
+  0x000073de2d126997:   xor    %edx,%edx
+  0x000073de2d126999:   cmp    $0xffffffff,%r9d
+  0x000073de2d12699d:   je     0x000073de2d1269a7
+  0x000073de2d1269a3:   cltd
+  0x000073de2d1269a4:   idiv   %r9d                         ; implicit exception: dispatches to 0x000073de2d126b59
+  0x000073de2d1269a7:   mov    %rdx,%r9
+  0x000073de2d1269aa:   mov    %rdi,%rax
+  0x000073de2d1269ad:   mov    $0x20,%ebx
+  0x000073de2d1269b2:   cmp    $0x80000000,%eax
+  0x000073de2d1269b7:   jne    0x000073de2d1269c8
+  0x000073de2d1269bd:   xor    %edx,%edx
+  0x000073de2d1269bf:   cmp    $0xffffffff,%ebx
+  0x000073de2d1269c2:   je     0x000073de2d1269cb
+  0x000073de2d1269c8:   cltd
+  0x000073de2d1269c9:   idiv   %ebx                         ; implicit exception: dispatches to 0x000073de2d126b5e
+  0x000073de2d1269cb:   mov    %rdx,%rbx
+  0x000073de2d1269ce:   mov    0x1c(%rsi),%eax              ; implicit exception: dispatches to 0x000073de2d126b63
+  0x000073de2d1269d1:   cmp    (%rax),%rax                  ; implicit exception: dispatches to 0x000073de2d126b68
+  0x000073de2d1269d4:   mov    %rax,%rdx
+  0x000073de2d1269d7:   movabs $0x73ddeca1d2a0,%r11         ;   {metadata(method data for {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d1269e1:   addq   $0x1,0x168(%r11)
+  0x000073de2d1269e9:   mov    %rcx,%rdx
+  0x000073de2d1269ec:   mov    %r8,%rcx
+  0x000073de2d1269ef:   mov    %r9,%r8
+  0x000073de2d1269f2:   mov    %rbx,%r9
+  0x000073de2d1269f5:   mov    %rsi,0x48(%rsp)
+  0x000073de2d1269fa:   mov    %rax,%rsi
+  0x000073de2d1269fd:   mov    %edi,0x3c(%rsp)
+  0x000073de2d126a01:   nopw   0x0(%rax,%rax,1)
+  0x000073de2d126a07:   call   0x000073de34843890           ; ImmutableOopMap {[72]=Oop }
+                                                            ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ;   {optimized virtual_call}
+  0x000073de2d126a0c:   nopl   0x284(%rax,%rax,1)           ;   {post_call_nop}
+  0x000073de2d126a14:   vaddss 0x54(%rsp),%xmm0,%xmm0
+  0x000073de2d126a1a:   mov    0x3c(%rsp),%edi
+  0x000073de2d126a1e:   inc    %edi
+  0x000073de2d126a20:   movabs $0x73ddeca1d2a0,%rsi         ;   {metadata(method data for {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d126a2a:   mov    0xf8(%rsi),%ebx
+  0x000073de2d126a30:   add    $0x2,%ebx
+  0x000073de2d126a33:   mov    %ebx,0xf8(%rsi)
+  0x000073de2d126a39:   and    $0x3ffe,%ebx
+  0x000073de2d126a3f:   test   %ebx,%ebx
+  0x000073de2d126a41:   je     0x000073de2d126b6d
+  0x000073de2d126a47:   mov    0x30(%r15),%r10              ; ImmutableOopMap {[72]=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+  0x000073de2d126a4b:   test   %eax,(%r10)                  ;   {poll}
+  0x000073de2d126a4e:   movabs $0x73ddeca1d2a0,%rsi         ;   {metadata(method data for {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d126a58:   incl   0x188(%rsi)
+  0x000073de2d126a5e:   vmovss %xmm0,0x54(%rsp)
+  0x000073de2d126a64:   mov    0x48(%rsp),%rsi
+  0x000073de2d126a69:   cmp    $0xf4240,%edi
+  0x000073de2d126a6f:   movabs $0x73ddeca1d2a0,%rax         ;   {metadata(method data for {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d126a79:   mov    $0x148,%edx
+  0x000073de2d126a7e:   jl     0x000073de2d126a85
+  0x000073de2d126a80:   mov    $0x138,%edx
+  0x000073de2d126a85:   mov    (%rax,%rdx,1),%rcx
+  0x000073de2d126a89:   lea    0x1(%rcx),%rcx
+  0x000073de2d126a8d:   mov    %rcx,(%rax,%rdx,1)
+  0x000073de2d126a91:   jl     0x000073de2d126938
+  0x000073de2d126a97:   vmovss 0x54(%rsp),%xmm0
+  0x000073de2d126a9d:   add    $0x60,%rsp
+  0x000073de2d126aa1:   pop    %rbp
+  0x000073de2d126aa2:   cmp    0x28(%r15),%rsp              ;   {poll_return}
+  0x000073de2d126aa6:   ja     0x000073de2d126b8e
+  0x000073de2d126aac:   ret
+  0x000073de2d126aad:   mov    %eax,-0x14000(%rsp)
+  0x000073de2d126ab4:   push   %rbp
+  0x000073de2d126ab5:   sub    $0x60,%rsp
+  0x000073de2d126ab9:   data16 xchg %ax,%ax
+  0x000073de2d126abc:   cmpl   $0x0,0x20(%r15)
+  0x000073de2d126ac4:   je     0x000073de2d126acb
+  0x000073de2d126ac6:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x000073de2d126acb:   mov    $0x30,%edi
+  0x000073de2d126ad0:   movslq %edi,%rdi
+  0x000073de2d126ad3:   mov    (%rsi,%rdi,1),%rbx
+  0x000073de2d126ad7:   mov    $0x28,%edi
+  0x000073de2d126adc:   movslq %edi,%rdi
+  0x000073de2d126adf:   vmovss (%rsi,%rdi,1),%xmm0
+  0x000073de2d126ae4:   mov    $0x20,%edi
+  0x000073de2d126ae9:   movslq %edi,%rdi
+  0x000073de2d126aec:   mov    (%rsi,%rdi,1),%eax
+  0x000073de2d126aef:   mov    %rsi,%rdi
+  0x000073de2d126af2:   mov    %rbx,0x40(%rsp)
+  0x000073de2d126af7:   mov    %eax,0x38(%rsp)
+  0x000073de2d126afb:   vmovss %xmm0,0x50(%rsp)
+  0x000073de2d126b01:   call   0x000073de44a52190           ;   {runtime_call SharedRuntime::OSR_migration_end(long*)}
+  0x000073de2d126b06:   nopl   0x0(%rax,%rax,1)             ;   {post_call_nop}
+  0x000073de2d126b0e:   mov    0x38(%rsp),%eax
+  0x000073de2d126b12:   mov    %rax,%rdi
+  0x000073de2d126b15:   vmovss 0x50(%rsp),%xmm0
+  0x000073de2d126b1b:   mov    0x40(%rsp),%rbx
+  0x000073de2d126b20:   mov    %rbx,%rsi
+  0x000073de2d126b23:   vmovss %xmm0,0x54(%rsp)
+  0x000073de2d126b29:   jmp    0x000073de2d126a69
+  0x000073de2d126b2e:   movabs $0x73ddec95e080,%r10         ;   {metadata({method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d126b38:   mov    %r10,0x8(%rsp)
+  0x000073de2d126b3d:   movq   $0xffffffffffffffff,(%rsp)
+  0x000073de2d126b45:   call   0x000073de345123e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*synchronization entry
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@-1 (line 20)
+                                                            ;   {runtime_call C1 Runtime counter_overflow_blob}
+  0x000073de2d126b4a:   jmp    0x000073de2d126922
+  0x000073de2d126b4f:   call   0x000073de3450d1e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@13 (line 22)
+                                                            ;   {runtime_call C1 Runtime throw_div0_exception_blob}
+  0x000073de2d126b54:   call   0x000073de3450d1e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@18 (line 23)
+                                                            ;   {runtime_call C1 Runtime throw_div0_exception_blob}
+  0x000073de2d126b59:   call   0x000073de3450d1e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@24 (line 24)
+                                                            ;   {runtime_call C1 Runtime throw_div0_exception_blob}
+  0x000073de2d126b5e:   call   0x000073de3450d1e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*irem {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@30 (line 25)
+                                                            ;   {runtime_call C1 Runtime throw_div0_exception_blob}
+  0x000073de2d126b63:   call   0x000073de3450d4e0           ; ImmutableOopMap {rsi=Oop }
+                                                            ;*getfield tensor {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@35 (line 26)
+                                                            ;   {runtime_call C1 Runtime throw_null_pointer_exception_blob}
+  0x000073de2d126b68:   call   0x000073de3450d4e0           ; ImmutableOopMap {rsi=Oop rax=Oop }
+                                                            ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ;   {runtime_call C1 Runtime throw_null_pointer_exception_blob}
+  0x000073de2d126b6d:   movabs $0x73ddec95e080,%r10         ;   {metadata({method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark')}
+  0x000073de2d126b77:   mov    %r10,0x8(%rsp)
+  0x000073de2d126b7c:   movq   $0x35,(%rsp)
+  0x000073de2d126b84:   call   0x000073de345123e0           ; ImmutableOopMap {[72]=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+                                                            ;   {runtime_call C1 Runtime counter_overflow_blob}
+  0x000073de2d126b89:   jmp    0x000073de2d126a47
+  0x000073de2d126b8e:   movabs $0x73de2d126aa2,%r10         ;   {internal_word}
+  0x000073de2d126b98:   mov    %r10,0x460(%r15)
+  0x000073de2d126b9f:   jmp    0x000073de344558e0           ;   {runtime_call SafepointBlob}
+  0x000073de2d126ba4:   mov    0x508(%r15),%rax
+  0x000073de2d126bab:   movq   $0x0,0x508(%r15)
+  0x000073de2d126bb6:   movq   $0x0,0x510(%r15)
+  0x000073de2d126bc1:   add    $0x60,%rsp
+  0x000073de2d126bc5:   pop    %rbp
+  0x000073de2d126bc6:   jmp    0x000073de3450c5e0           ;   {runtime_call C1 Runtime unwind_exception_blob}
+  0x000073de2d126bcb:   hlt
+  0x000073de2d126bcc:   hlt
+  0x000073de2d126bcd:   hlt
+  0x000073de2d126bce:   hlt
+  0x000073de2d126bcf:   hlt
+[Stub Code]
+  0x000073de2d126bd0:   nopl   0x0(%rax,%rax,1)             ;   {no_reloc}
+  0x000073de2d126bd5:   movabs $0x0,%rbx                    ;   {static_stub}
+  0x000073de2d126bdf:   jmp    0x000073de2d126bdf           ;   {runtime_call nmethod}
+[Exception Handler]
+  0x000073de2d126be4:   call   0x000073de3450f2e0           ;   {runtime_call C1 Runtime handle_exception_from_callee_blob}
+  0x000073de2d126be9:   movabs $0x73de44dc0632,%rdi         ;   {external_word}
+  0x000073de2d126bf3:   and    $0xfffffffffffffff0,%rsp
+  0x000073de2d126bf7:   call   0x000073de4486f4b0           ;   {runtime_call MacroAssembler::debug64(char*, long, long*)}
+  0x000073de2d126bfc:   hlt
+[Deopt Handler Code]
+  0x000073de2d126bfd:   movabs $0x73de2d126bfd,%r10         ;   {section_word}
+  0x000073de2d126c07:   push   %r10
+  0x000073de2d126c09:   jmp    0x000073de34454e80           ;   {runtime_call DeoptimizationBlob}
+  0x000073de2d126c0e:   hlt
+  0x000073de2d126c0f:   hlt
+--------------------------------------------------------------------------------
+[/Disassembly]
+
+============================= C2-compiled nmethod ==============================
+----------------------------------- Assembly -----------------------------------
+
+Compiled method (c2) 628  945 %     4       com.mpataki.Tensor4DBenchmark::realTest @ 4 (58 bytes)
+ total in heap  [0x000073de34844008,0x000073de34844560] = 1368
+ relocation     [0x000073de348440e0,0x000073de34844108] = 40
+ main code      [0x000073de34844120,0x000073de34844528] = 1032
+ stub code      [0x000073de34844528,0x000073de34844540] = 24
+ oops           [0x000073de34844540,0x000073de34844548] = 8
+ metadata       [0x000073de34844548,0x000073de34844560] = 24
+ immutable data [0x000073ddcc166f80,0x000073ddcc167068] = 232
+ dependencies   [0x000073ddcc166f80,0x000073ddcc166f90] = 16
+ nul chk table  [0x000073ddcc166f90,0x000073ddcc166fa8] = 24
+ scopes pcs     [0x000073ddcc166fa8,0x000073ddcc167008] = 96
+ scopes data    [0x000073ddcc167008,0x000073ddcc167068] = 96
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+add    %al,(%rax)
+[Verified Entry Point]
+  # {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark'
+  0x000073de34844120:   call   0x000073de4498db70           ;   {runtime_call os::breakpoint()}
+  0x000073de34844125:   data16 data16 nopw 0x0(%rax,%rax,1)
+  0x000073de34844130:   mov    %eax,-0x14000(%rsp)
+  0x000073de34844137:   push   %rbp
+  0x000073de34844138:   sub    $0x20,%rsp
+  0x000073de3484413c:   cmpl   $0x1,0x20(%r15)
+  0x000073de34844144:   jne    0x000073de3484451b
+  0x000073de3484414a:   mov    0x30(%rsi),%rbp
+  0x000073de3484414e:   vmovss 0x28(%rsi),%xmm0
+  0x000073de34844153:   vmovss %xmm0,(%rsp)
+  0x000073de34844158:   mov    0x20(%rsi),%ebx
+  0x000073de3484415b:   mov    %rsi,%rdi
+  0x000073de3484415e:   movabs $0x73de44a52190,%r10
+  0x000073de34844168:   call   *%r10
+  0x000073de3484416b:   nopl   0x0(%rax,%rax,1)             ;   {post_call_nop}
+  0x000073de34844173:   test   %rbp,%rbp
+  0x000073de34844176:   je     0x000073de3484440d
+  0x000073de3484417c:   mov    0x8(%rbp),%r10d
+  0x000073de34844180:   movabs $0x400d29f0,%r11             ;   {metadata('com/mpataki/Tensor4DBenchmark')}
+  0x000073de3484418a:   mov    %r10d,%r8d
+  0x000073de3484418d:   mov    0x38(%r8),%r10
+  0x000073de34844191:   cmp    %r11,%r10
+  0x000073de34844194:   jne    0x000073de348444dc
+  0x000073de3484419a:   mov    0x1c(%rbp),%ecx
+  0x000073de3484419d:   data16 xchg %ax,%ax
+  0x000073de348441a0:   mov    0x1c(%rcx),%eax              ; implicit exception: dispatches to 0x000073de3484440f
+  0x000073de348441a3:   mov    0xc(%rax),%r13d              ; implicit exception: dispatches to 0x000073de3484440f
+  0x000073de348441a7:   cmp    $0xf4240,%ebx
+  0x000073de348441ad:   jge    0x000073de34844428
+  0x000073de348441b3:   mov    0x18(%rcx),%r10d
+  0x000073de348441b7:   mov    0x14(%rcx),%r11d
+  0x000073de348441bb:   mov    %r11d,%r9d
+  0x000073de348441be:   imul   0x10(%rcx),%r9d
+  0x000073de348441c3:   imul   %r10d,%r11d
+  0x000073de348441c7:   imul   %r10d,%r9d
+  0x000073de348441cb:   mov    %ebx,%r8d
+  0x000073de348441ce:   inc    %r8d
+  0x000073de348441d1:   movslq %ebx,%rcx
+  0x000073de348441d4:   mov    %ebx,%edi
+  0x000073de348441d6:   sar    $0x1f,%edi
+  0x000073de348441d9:   imul   $0xffffffff92492493,%rcx,%rsi
+  0x000073de348441e0:   mov    %edi,%edx
+  0x000073de348441e2:   shr    $0x1c,%edx
+  0x000073de348441e5:   add    %ebx,%edx
+  0x000073de348441e7:   sar    $0x20,%rsi
+  0x000073de348441eb:   and    $0xfffffff0,%edx
+  0x000073de348441ee:   mov    %ebx,%ecx
+  0x000073de348441f0:   sub    %edx,%ecx
+  0x000073de348441f2:   imul   %r11d,%ecx
+  0x000073de348441f6:   mov    %esi,%esi
+  0x000073de348441f8:   add    %ebx,%esi
+  0x000073de348441fa:   mov    %edi,%r14d
+  0x000073de348441fd:   shr    $0x1a,%r14d
+  0x000073de34844201:   add    %ebx,%r14d
+  0x000073de34844204:   sar    $0x4,%esi
+  0x000073de34844207:   sub    %edi,%esi
+  0x000073de34844209:   and    $0xffffffc0,%r14d
+  0x000073de3484420d:   mov    %ebx,%edx
+  0x000073de3484420f:   sub    %r14d,%edx
+  0x000073de34844212:   imul   %r9d,%edx
+  0x000073de34844216:   add    %ecx,%edx
+  0x000073de34844218:   imul   $0x1c,%esi,%ecx
+  0x000073de3484421b:   mov    %ebx,%r14d
+  0x000073de3484421e:   sub    %ecx,%r14d
+  0x000073de34844221:   imul   %r10d,%r14d
+  0x000073de34844225:   add    %r14d,%edx
+  0x000073de34844228:   shr    $0x1b,%edi
+  0x000073de3484422b:   add    %ebx,%edi
+  0x000073de3484422d:   and    $0xffffffe0,%edi
+  0x000073de34844230:   mov    %ebx,%ecx
+  0x000073de34844232:   sub    %edi,%ecx
+  0x000073de34844234:   add    %ecx,%edx
+  0x000073de34844236:   cmp    %r13d,%edx
+  0x000073de34844239:   jae    0x000073de34844404
+  0x000073de3484423f:   vmovss (%rsp),%xmm0
+  0x000073de34844244:   vaddss 0x10(%rax,%rdx,4),%xmm0,%xmm2
+  0x000073de3484424a:   inc    %ebx
+  0x000073de3484424c:   cmp    %r8d,%ebx
+  0x000073de3484424f:   jge    0x000073de3484425b
+  0x000073de34844251:   vmovss %xmm2,(%rsp)
+  0x000073de34844256:   jmp    0x000073de348441d1
+  0x000073de3484425b:   nopl   0x0(%rax,%rax,1)
+  0x000073de34844260:   cmp    $0xf423f,%ebx
+  0x000073de34844266:   jge    0x000073de34844437
+  0x000073de3484426c:   mov    $0xf423f,%esi
+  0x000073de34844271:   sub    %ebx,%esi
+  0x000073de34844273:   xor    %r8d,%r8d
+  0x000073de34844276:   cmp    $0xf423f,%ebx
+  0x000073de3484427c:   cmovg  %r8d,%esi                    ;   {no_reloc}
+  0x000073de34844280:   cmp    $0x7d0,%esi
+  0x000073de34844286:   mov    $0x7d0,%r8d
+  0x000073de3484428c:   cmova  %r8d,%esi
+  0x000073de34844290:   add    %ebx,%esi
+  0x000073de34844292:   vmovq  %rbp,%xmm0
+  0x000073de34844297:   nopw   0x0(%rax,%rax,1)
+  0x000073de348442a0:   movslq %ebx,%r8
+  0x000073de348442a3:   mov    %ebx,%ebp
+  0x000073de348442a5:   sar    $0x1f,%ebp
+  0x000073de348442a8:   imul   $0xffffffff92492493,%r8,%r8
+  0x000073de348442af:   mov    %ebp,%ecx
+  0x000073de348442b1:   shr    $0x1c,%ecx
+  0x000073de348442b4:   add    %ebx,%ecx
+  0x000073de348442b6:   sar    $0x20,%r8
+  0x000073de348442ba:   and    $0xfffffff0,%ecx
+  0x000073de348442bd:   mov    %ebx,%r14d
+  0x000073de348442c0:   sub    %ecx,%r14d
+  0x000073de348442c3:   imul   %r11d,%r14d
+  0x000073de348442c7:   mov    %r8d,%r8d
+  0x000073de348442ca:   add    %ebx,%r8d
+  0x000073de348442cd:   mov    %ebp,%edi
+  0x000073de348442cf:   shr    $0x1a,%edi
+  0x000073de348442d2:   add    %ebx,%edi
+  0x000073de348442d4:   sar    $0x4,%r8d
+  0x000073de348442d8:   sub    %ebp,%r8d
+  0x000073de348442db:   and    $0xffffffc0,%edi
+  0x000073de348442de:   mov    %ebx,%edx
+  0x000073de348442e0:   sub    %edi,%edx
+  0x000073de348442e2:   imul   %r9d,%edx
+  0x000073de348442e6:   add    %r14d,%edx
+  0x000073de348442e9:   imul   $0x1c,%r8d,%ecx
+  0x000073de348442ed:   mov    %ebx,%edi
+  0x000073de348442ef:   sub    %ecx,%edi
+  0x000073de348442f1:   imul   %r10d,%edi
+  0x000073de348442f5:   add    %edi,%edx
+  0x000073de348442f7:   shr    $0x1b,%ebp
+  0x000073de348442fa:   add    %ebx,%ebp
+  0x000073de348442fc:   and    $0xffffffe0,%ebp
+  0x000073de348442ff:   mov    %ebx,%r8d
+  0x000073de34844302:   sub    %ebp,%r8d
+  0x000073de34844305:   add    %r8d,%edx
+  0x000073de34844308:   cmp    %r13d,%edx
+  0x000073de3484430b:   jae    0x000073de348443d7
+  0x000073de34844311:   vaddss 0x10(%rax,%rdx,4),%xmm2,%xmm2
+  0x000073de34844317:   mov    %ebx,%edi
+  0x000073de34844319:   inc    %edi
+  0x000073de3484431b:   movslq %edi,%r8
+  0x000073de3484431e:   mov    %edi,%ebp
+  0x000073de34844320:   sar    $0x1f,%ebp
+  0x000073de34844323:   imul   $0xffffffff92492493,%r8,%r8
+  0x000073de3484432a:   mov    %ebp,%ecx
+  0x000073de3484432c:   shr    $0x1c,%ecx
+  0x000073de3484432f:   add    %ebx,%ecx
+  0x000073de34844331:   sar    $0x20,%r8
+  0x000073de34844335:   inc    %ecx
+  0x000073de34844337:   mov    %r8d,%r8d
+  0x000073de3484433a:   add    %ebx,%r8d
+  0x000073de3484433d:   and    $0xfffffff0,%ecx
+  0x000073de34844340:   mov    %ebx,%r14d
+  0x000073de34844343:   sub    %ecx,%r14d
+  0x000073de34844346:   inc    %r8d
+  0x000073de34844349:   inc    %r14d
+  0x000073de3484434c:   imul   %r11d,%r14d
+  0x000073de34844350:   sar    $0x4,%r8d
+  0x000073de34844354:   sub    %ebp,%r8d
+  0x000073de34844357:   mov    %ebp,%edx
+  0x000073de34844359:   shr    $0x1a,%edx
+  0x000073de3484435c:   add    %ebx,%edx
+  0x000073de3484435e:   imul   $0x1c,%r8d,%r8d
+  0x000073de34844362:   mov    %ebx,%ecx
+  0x000073de34844364:   sub    %r8d,%ecx
+  0x000073de34844367:   inc    %edx
+  0x000073de34844369:   inc    %ecx
+  0x000073de3484436b:   imul   %r10d,%ecx
+  0x000073de3484436f:   and    $0xffffffc0,%edx
+  0x000073de34844372:   mov    %ebx,%r8d
+  0x000073de34844375:   sub    %edx,%r8d
+  0x000073de34844378:   shr    $0x1b,%ebp
+  0x000073de3484437b:   add    %ebx,%ebp
+  0x000073de3484437d:   inc    %r8d                         ;   {no_reloc}
+  0x000073de34844380:   imul   %r9d,%r8d
+  0x000073de34844384:   add    %r14d,%r8d
+  0x000073de34844387:   add    %ecx,%r8d
+  0x000073de3484438a:   inc    %ebp
+  0x000073de3484438c:   and    $0xffffffe0,%ebp
+  0x000073de3484438f:   mov    %ebx,%ecx
+  0x000073de34844391:   sub    %ebp,%ecx
+  0x000073de34844393:   add    %ecx,%r8d
+  0x000073de34844396:   mov    %r8d,%edx
+  0x000073de34844399:   inc    %edx
+  0x000073de3484439b:   nopl   0x0(%rax,%rax,1)
+  0x000073de348443a0:   cmp    %r13d,%edx
+  0x000073de348443a3:   jae    0x000073de348443d9
+  0x000073de348443a5:   movslq %r8d,%r8
+  0x000073de348443a8:   vaddss 0x14(%rax,%r8,4),%xmm2,%xmm2
+  0x000073de348443af:   add    $0x2,%ebx
+  0x000073de348443b2:   cmp    %esi,%ebx
+  0x000073de348443b4:   jl     0x000073de348442a0
+  0x000073de348443ba:   mov    0x30(%r15),%r8               ; ImmutableOopMap {rax=NarrowOop xmm0=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+  0x000073de348443be:   test   %eax,(%r8)                   ;   {poll}
+  0x000073de348443c1:   cmp    $0xf423f,%ebx
+  0x000073de348443c7:   jge    0x000073de34844432
+  0x000073de348443cd:   vmovq  %xmm0,%rbp
+  0x000073de348443d2:   jmp    0x000073de3484426c
+  0x000073de348443d7:   mov    %ebx,%edi
+  0x000073de348443d9:   vmovq  %xmm0,%rbp
+  0x000073de348443de:   vmovss %xmm2,(%rsp)
+  0x000073de348443e3:   mov    $0xffffffe4,%esi
+  0x000073de348443e8:   mov    %edi,0x4(%rsp)
+  0x000073de348443ec:   mov    %eax,0x8(%rsp)
+  0x000073de348443f0:   mov    %edx,0xc(%rsp)
+  0x000073de348443f4:   data16 xchg %ax,%ax
+  0x000073de348443f7:   call   0x000073de345141e0           ; ImmutableOopMap {rbp=Oop [8]=NarrowOop }
+                                                            ;*faload {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::get@44 (line 20)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000073de348443fc:   nopl   0x10003f4(%rax,%rax,1)       ;   {post_call_nop}
+  0x000073de34844404:   mov    %ebx,%edi
+  0x000073de34844406:   vmovss (%rsp),%xmm2
+  0x000073de3484440b:   jmp    0x000073de348443de
+  0x000073de3484440d:   xor    %ebp,%ebp
+  0x000073de3484440f:   mov    $0xffffffbe,%esi
+  0x000073de34844414:   mov    %ebx,0x4(%rsp)
+  0x000073de34844418:   data16 xchg %ax,%ax
+  0x000073de3484441b:   call   0x000073de345141e0           ; ImmutableOopMap {rbp=Oop }
+                                                            ;*iload_2 {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@4 (line 21)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000073de34844420:   nopl   0x2000418(%rax,%rax,1)       ;   {post_call_nop}
+  0x000073de34844428:   vmovss (%rsp),%xmm2
+  0x000073de3484442d:   jmp    0x000073de348444c8
+  0x000073de34844432:   vmovq  %xmm0,%rbp
+  0x000073de34844437:   nopw   0x0(%rax,%rax,1)
+  0x000073de34844440:   cmp    $0xf4240,%ebx
+  0x000073de34844446:   jge    0x000073de348444c8
+  0x000073de3484444c:   movslq %ebx,%rcx
+  0x000073de3484444f:   mov    %ebx,%r8d
+  0x000073de34844452:   sar    $0x1f,%r8d
+  0x000073de34844456:   imul   $0xffffffff92492493,%rcx,%rcx
+  0x000073de3484445d:   mov    %r8d,%esi
+  0x000073de34844460:   shr    $0x1c,%esi
+  0x000073de34844463:   add    %ebx,%esi
+  0x000073de34844465:   sar    $0x20,%rcx
+  0x000073de34844469:   and    $0xfffffff0,%esi
+  0x000073de3484446c:   mov    %ebx,%edi
+  0x000073de3484446e:   sub    %esi,%edi
+  0x000073de34844470:   imul   %r11d,%edi
+  0x000073de34844474:   mov    %ecx,%ecx
+  0x000073de34844476:   add    %ebx,%ecx
+  0x000073de34844478:   mov    %r8d,%esi
+  0x000073de3484447b:   shr    $0x1a,%esi
+  0x000073de3484447e:   add    %ebx,%esi
+  0x000073de34844480:   sar    $0x4,%ecx
+  0x000073de34844483:   sub    %r8d,%ecx
+  0x000073de34844486:   and    $0xffffffc0,%esi
+  0x000073de34844489:   mov    %ebx,%edx
+  0x000073de3484448b:   sub    %esi,%edx
+  0x000073de3484448d:   imul   %r9d,%edx
+  0x000073de34844491:   add    %edi,%edx
+  0x000073de34844493:   imul   $0x1c,%ecx,%edi
+  0x000073de34844496:   mov    %ebx,%esi
+  0x000073de34844498:   sub    %edi,%esi
+  0x000073de3484449a:   imul   %r10d,%esi
+  0x000073de3484449e:   add    %esi,%edx
+  0x000073de348444a0:   shr    $0x1b,%r8d
+  0x000073de348444a4:   add    %ebx,%r8d
+  0x000073de348444a7:   and    $0xffffffe0,%r8d
+  0x000073de348444ab:   mov    %ebx,%ecx
+  0x000073de348444ad:   sub    %r8d,%ecx
+  0x000073de348444b0:   add    %ecx,%edx
+  0x000073de348444b2:   cmp    %r13d,%edx
+  0x000073de348444b5:   jae    0x000073de348444f4
+  0x000073de348444b7:   vaddss 0x10(%rax,%rdx,4),%xmm2,%xmm2
+  0x000073de348444bd:   inc    %ebx
+  0x000073de348444bf:   nop
+  0x000073de348444c0:   cmp    $0xf4240,%ebx
+  0x000073de348444c6:   jl     0x000073de3484444c
+  0x000073de348444c8:   vmovaps %xmm2,%xmm0
+  0x000073de348444cc:   add    $0x20,%rsp
+  0x000073de348444d0:   pop    %rbp
+  0x000073de348444d1:   cmp    0x28(%r15),%rsp              ;   {poll_return}
+  0x000073de348444d5:   ja     0x000073de34844505
+  0x000073de348444db:   ret
+  0x000073de348444dc:   mov    $0xffffff8d,%esi
+  0x000073de348444e1:   mov    %ebx,0x4(%rsp)
+  0x000073de348444e5:   xchg   %ax,%ax
+  0x000073de348444e7:   call   0x000073de345141e0           ; ImmutableOopMap {rbp=Oop }
+                                                            ;*iload_2 {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@4 (line 21)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000073de348444ec:   nopl   0x30004e4(%rax,%rax,1)       ;   {post_call_nop}
+  0x000073de348444f4:   vmovss %xmm2,(%rsp)
+  0x000073de348444f9:   mov    %ebx,%edi
+  0x000073de348444fb:   nopl   0x0(%rax,%rax,1)
+  0x000073de34844500:   jmp    0x000073de348443e3
+  0x000073de34844505:   movabs $0x73de348444d1,%r10         ;   {internal_word}
+  0x000073de3484450f:   mov    %r10,0x460(%r15)
+  0x000073de34844516:   jmp    0x000073de344558e0           ;   {runtime_call SafepointBlob}
+  0x000073de3484451b:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x000073de34844520:   jmp    0x000073de3484414a
+  0x000073de34844525:   hlt
+  0x000073de34844526:   hlt
+  0x000073de34844527:   hlt
+[Exception Handler]
+  0x000073de34844528:   jmp    0x000073de345144e0           ;   {no_reloc}
+[Deopt Handler Code]
+  0x000073de3484452d:   call   0x000073de34844532
+  0x000073de34844532:   subq   $0x5,(%rsp)
+  0x000073de34844537:   jmp    0x000073de34454e80           ;   {runtime_call DeoptimizationBlob}
+  0x000073de3484453c:   hlt
+  0x000073de3484453d:   hlt
+  0x000073de3484453e:   hlt
+  0x000073de3484453f:   hlt
+--------------------------------------------------------------------------------
+[/Disassembly]
+
+============================= C2-compiled nmethod ==============================
+----------------------------------- Assembly -----------------------------------
+
+Compiled method (c2) 644  946       4       com.mpataki.Tensor4DBenchmark::realTest (58 bytes)
+ total in heap  [0x000073de34844588,0x000073de34844948] = 960
+ relocation     [0x000073de34844660,0x000073de34844680] = 32
+ main code      [0x000073de34844680,0x000073de34844910] = 656
+ stub code      [0x000073de34844910,0x000073de34844928] = 24
+ oops           [0x000073de34844928,0x000073de34844930] = 8
+ metadata       [0x000073de34844930,0x000073de34844948] = 24
+ immutable data [0x000073ddcc167100,0x000073ddcc1671e0] = 224
+ dependencies   [0x000073ddcc167100,0x000073ddcc167110] = 16
+ nul chk table  [0x000073ddcc167110,0x000073ddcc167128] = 24
+ scopes pcs     [0x000073ddcc167128,0x000073ddcc167178] = 80
+ scopes data    [0x000073ddcc167178,0x000073ddcc1671e0] = 104
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+add    %al,(%rax)
+[Instructions begin]
+  0x000073de34844680:   xchg   %ax,%ax
+[Entry Point]
+  # {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark'
+  #           [sp+0x30]  (sp of caller)
+  0x000073de34844682:   mov    0x8(%rsi),%r10d
+  0x000073de34844686:   cmp    0x8(%rax),%r10d
+  0x000073de3484468a:   jne    0x000073de3444e060           ;   {runtime_call Shared Runtime ic_miss_blob}
+[Verified Entry Point]
+  0x000073de34844690:   mov    %eax,-0x14000(%rsp)
+  0x000073de34844697:   push   %rbp
+  0x000073de34844698:   sub    $0x20,%rsp
+  0x000073de3484469c:   cmpl   $0x0,0x20(%r15)
+  0x000073de348446a4:   jne    0x000073de34844902
+  0x000073de348446aa:   mov    %rsi,%rbp
+  0x000073de348446ad:   mov    0x1c(%rsi),%r9d
+  0x000073de348446b1:   mov    0x1c(%r9),%eax               ; implicit exception: dispatches to 0x000073de348448d9
+  0x000073de348446b5:   mov    0xc(%rax),%r10d              ; implicit exception: dispatches to 0x000073de348448d9
+  0x000073de348446b9:   vxorps %xmm0,%xmm0,%xmm0
+  0x000073de348446bd:   data16 xchg %ax,%ax
+  0x000073de348446c0:   test   %r10d,%r10d
+  0x000073de348446c3:   jbe    0x000073de34844848
+  0x000073de348446c9:   vaddss 0x10(%rax),%xmm0,%xmm0
+  0x000073de348446ce:   mov    0x14(%r9),%r8d
+  0x000073de348446d2:   mov    %r8d,%r11d
+  0x000073de348446d5:   imul   0x10(%r9),%r11d
+  0x000073de348446da:   mov    0x18(%r9),%ecx
+  0x000073de348446de:   imul   %ecx,%r11d
+  0x000073de348446e2:   imul   %ecx,%r8d
+  0x000073de348446e6:   mov    $0x1,%r9d
+  0x000073de348446ec:   jmp    0x000073de348447f7
+  0x000073de348446f1:   vmovq  %xmm1,%rbp
+  0x000073de348446f6:   mov    %r9d,%edx
+  0x000073de348446f9:   and    $0xffffffe0,%edx
+  0x000073de348446fc:   mov    %r9d,%edi
+  0x000073de348446ff:   sub    %edx,%edi
+  0x000073de34844701:   mov    %r9d,%ebx
+  0x000073de34844704:   and    $0xffffffc0,%ebx
+  0x000073de34844707:   mov    %r9d,%edx
+  0x000073de3484470a:   sub    %ebx,%edx
+  0x000073de3484470c:   imul   %r11d,%edx
+  0x000073de34844710:   mov    %r9d,%ebx
+  0x000073de34844713:   and    $0xfffffff0,%ebx
+  0x000073de34844716:   mov    %r9d,%esi
+  0x000073de34844719:   sub    %ebx,%esi
+  0x000073de3484471b:   imul   %r8d,%esi
+  0x000073de3484471f:   add    %esi,%edx
+  0x000073de34844721:   movslq %r9d,%rbx
+  0x000073de34844724:   imul   $0xffffffff92492493,%rbx,%r13
+  0x000073de3484472b:   mov    %r13,%rbx
+  0x000073de3484472e:   sar    $0x20,%rbx
+  0x000073de34844732:   mov    %ebx,%ebx
+  0x000073de34844734:   add    %r9d,%ebx
+  0x000073de34844737:   sar    $0x4,%ebx
+  0x000073de3484473a:   imul   $0x1c,%ebx,%ebx
+  0x000073de3484473d:   mov    %r9d,%esi
+  0x000073de34844740:   sub    %ebx,%esi
+  0x000073de34844742:   imul   %ecx,%esi
+  0x000073de34844745:   add    %esi,%edx
+  0x000073de34844747:   add    %edi,%edx
+  0x000073de34844749:   cmp    %r10d,%edx
+  0x000073de3484474c:   jae    0x000073de34844818
+  0x000073de34844752:   vmovq  %rbp,%xmm1
+  0x000073de34844757:   vaddss 0x10(%rax,%rdx,4),%xmm0,%xmm0
+  0x000073de3484475d:   add    $0xffffffff92492493,%r13
+  0x000073de34844764:   sar    $0x20,%r13
+  0x000073de34844768:   mov    %r13d,%edi
+  0x000073de3484476b:   mov    %r9d,%ebx
+  0x000073de3484476e:   inc    %ebx
+  0x000073de34844770:   add    %ebx,%edi
+  0x000073de34844772:   mov    %ebx,%edx
+  0x000073de34844774:   and    $0xffffffe0,%edx
+  0x000073de34844777:   mov    %r9d,%ebp
+  0x000073de3484477a:   sub    %edx,%ebp
+  0x000073de3484477c:   sar    $0x4,%edi
+  0x000073de3484477f:   mov    %ebx,%esi
+  0x000073de34844781:   and    $0xfffffff0,%esi
+  0x000073de34844784:   mov    %r9d,%edx
+  0x000073de34844787:   sub    %esi,%edx
+  0x000073de34844789:   imul   $0x1c,%edi,%edi              ;   {no_reloc}
+  0x000073de3484478c:   mov    %r9d,%r13d
+  0x000073de3484478f:   sub    %edi,%r13d
+  0x000073de34844792:   inc    %edx
+  0x000073de34844794:   imul   %r8d,%edx
+  0x000073de34844798:   inc    %r13d
+  0x000073de3484479b:   imul   %ecx,%r13d
+  0x000073de3484479f:   mov    %ebx,%esi
+  0x000073de348447a1:   and    $0xffffffc0,%esi
+  0x000073de348447a4:   mov    %r9d,%edi
+  0x000073de348447a7:   sub    %esi,%edi
+  0x000073de348447a9:   inc    %edi
+  0x000073de348447ab:   imul   %r11d,%edi
+  0x000073de348447af:   add    %edx,%edi
+  0x000073de348447b1:   add    %r13d,%edi
+  0x000073de348447b4:   add    %ebp,%edi
+  0x000073de348447b6:   mov    %edi,%edx
+  0x000073de348447b8:   inc    %edx
+  0x000073de348447ba:   nopw   0x0(%rax,%rax,1)
+  0x000073de348447c0:   cmp    %r10d,%edx
+  0x000073de348447c3:   jae    0x000073de3484481d
+  0x000073de348447c9:   movslq %edi,%rbx
+  0x000073de348447cc:   vaddss 0x14(%rax,%rbx,4),%xmm0,%xmm0
+  0x000073de348447d2:   add    $0x2,%r9d
+  0x000073de348447d6:   cmp    %r14d,%r9d
+  0x000073de348447d9:   jl     0x000073de348446f1
+  0x000073de348447df:   mov    0x30(%r15),%rbx              ; ImmutableOopMap {rax=NarrowOop xmm1=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+  0x000073de348447e3:   test   %eax,(%rbx)                  ;   {poll}
+  0x000073de348447e5:   cmp    $0xf423f,%r9d
+  0x000073de348447ec:   jge    0x000073de3484484e
+  0x000073de348447f2:   vmovq  %xmm1,%rbp
+  0x000073de348447f7:   mov    $0xf423f,%r14d
+  0x000073de348447fd:   sub    %r9d,%r14d
+  0x000073de34844800:   cmp    $0x7d0,%r14d
+  0x000073de34844807:   mov    $0x7d0,%ebx
+  0x000073de3484480c:   cmova  %ebx,%r14d
+  0x000073de34844810:   add    %r9d,%r14d
+  0x000073de34844813:   jmp    0x000073de348446f6
+  0x000073de34844818:   mov    %r9d,%ebx
+  0x000073de3484481b:   jmp    0x000073de34844822
+  0x000073de3484481d:   vmovq  %xmm1,%rbp
+  0x000073de34844822:   vmovss %xmm0,(%rsp)
+  0x000073de34844827:   mov    $0xffffffe4,%esi
+  0x000073de3484482c:   mov    %ebx,0x4(%rsp)
+  0x000073de34844830:   mov    %eax,0x8(%rsp)
+  0x000073de34844834:   mov    %edx,0xc(%rsp)
+  0x000073de34844838:   data16 xchg %ax,%ax
+  0x000073de3484483b:   call   0x000073de345141e0           ; ImmutableOopMap {rbp=Oop [8]=NarrowOop }
+                                                            ;*faload {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::get@44 (line 20)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000073de34844840:   nopl   0x10002b8(%rax,%rax,1)       ;   {post_call_nop}
+  0x000073de34844848:   xor    %ebx,%ebx
+  0x000073de3484484a:   xor    %edx,%edx
+  0x000073de3484484c:   jmp    0x000073de34844822
+  0x000073de3484484e:   mov    %r9d,%edi
+  0x000073de34844851:   and    $0xffffffe0,%edi
+  0x000073de34844854:   mov    %r9d,%esi
+  0x000073de34844857:   sub    %edi,%esi
+  0x000073de34844859:   mov    %r9d,%ebx
+  0x000073de3484485c:   and    $0xffffffc0,%ebx
+  0x000073de3484485f:   mov    %r9d,%edx
+  0x000073de34844862:   sub    %ebx,%edx
+  0x000073de34844864:   imul   %r11d,%edx
+  0x000073de34844868:   mov    %r9d,%ebx
+  0x000073de3484486b:   and    $0xfffffff0,%ebx
+  0x000073de3484486e:   mov    %r9d,%ebp
+  0x000073de34844871:   sub    %ebx,%ebp
+  0x000073de34844873:   imul   %r8d,%ebp
+  0x000073de34844877:   add    %ebp,%edx
+  0x000073de34844879:   movslq %r9d,%rbx
+  0x000073de3484487c:   imul   $0xffffffff92492493,%rbx,%rbx
+  0x000073de34844883:   sar    $0x20,%rbx
+  0x000073de34844887:   mov    %ebx,%edi
+  0x000073de34844889:   add    %r9d,%edi
+  0x000073de3484488c:   sar    $0x4,%edi
+  0x000073de3484488f:   imul   $0x1c,%edi,%ebx
+  0x000073de34844892:   mov    %r9d,%edi
+  0x000073de34844895:   sub    %ebx,%edi
+  0x000073de34844897:   imul   %ecx,%edi
+  0x000073de3484489a:   add    %edi,%edx
+  0x000073de3484489c:   add    %esi,%edx
+  0x000073de3484489e:   xchg   %ax,%ax
+  0x000073de348448a0:   cmp    %r10d,%edx
+  0x000073de348448a3:   jae    0x000073de348448c7
+  0x000073de348448a5:   vaddss 0x10(%rax,%rdx,4),%xmm0,%xmm0
+  0x000073de348448ab:   inc    %r9d
+  0x000073de348448ae:   cmp    $0xf4240,%r9d
+  0x000073de348448b5:   jl     0x000073de3484484e
+  0x000073de348448b7:   add    $0x20,%rsp
+  0x000073de348448bb:   pop    %rbp
+  0x000073de348448bc:   cmp    0x28(%r15),%rsp              ;   {poll_return}
+  0x000073de348448c0:   ja     0x000073de348448ec
+  0x000073de348448c6:   ret
+  0x000073de348448c7:   vmovss %xmm0,(%rsp)
+  0x000073de348448cc:   mov    %r9d,%ebx
+  0x000073de348448cf:   vmovq  %xmm1,%rbp
+  0x000073de348448d4:   jmp    0x000073de34844827
+  0x000073de348448d9:   mov    $0xffffff76,%esi
+  0x000073de348448de:   nop
+  0x000073de348448df:   call   0x000073de345141e0           ; ImmutableOopMap {rbp=Oop }
+                                                            ;*if_icmpge {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@7 (line 21)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000073de348448e4:   nopl   0x200035c(%rax,%rax,1)       ;   {post_call_nop}
+  0x000073de348448ec:   movabs $0x73de348448bc,%r10         ;   {internal_word}
+  0x000073de348448f6:   mov    %r10,0x460(%r15)
+  0x000073de348448fd:   jmp    0x000073de344558e0           ;   {runtime_call SafepointBlob}
+  0x000073de34844902:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x000073de34844907:   jmp    0x000073de348446aa
+  0x000073de3484490c:   hlt
+  0x000073de3484490d:   hlt
+  0x000073de3484490e:   hlt
+  0x000073de3484490f:   hlt
+[Exception Handler]
+  0x000073de34844910:   jmp    0x000073de345144e0           ;   {no_reloc}
+[Deopt Handler Code]
+  0x000073de34844915:   call   0x000073de3484491a
+  0x000073de3484491a:   subq   $0x5,(%rsp)
+  0x000073de3484491f:   jmp    0x000073de34454e80           ;   {runtime_call DeoptimizationBlob}
+  0x000073de34844924:   hlt
+  0x000073de34844925:   hlt
+  0x000073de34844926:   hlt
+  0x000073de34844927:   hlt
+--------------------------------------------------------------------------------
+[/Disassembly]
+276.827 ops/s
+# Warmup Iteration   2: 278.804 ops/s
+Iteration   1: 284.750 ops/s
+Iteration   2: 284.548 ops/s
+------------------------------------------------------------------------
+com.mpataki.Tensor4DBenchmark::realTest()F
+  interpreter_invocation_count:           4
+  invocation_counter:                     4
+  backedge_counter:                 1367271
+  decompile_count:                        1
+  mdo size: 480 bytes
+
+   0 fconst_0
+   1 fstore_1
+   2 iconst_0
+   3 istore_2
+   4 iload_2
+   5 ldc 1000000
+   7 if_icmpge 56
+  0    bci: 7    BranchData         trap(intrinsic_or_type_checked_inlining recompiled) taken(1) displacement(104)
+                                    not taken(1301502)
+  10 iload_2
+  11 bipush 64
+  13 irem
+  14 istore_3
+  15 iload_2
+  16 bipush 16
+  18 irem
+  19 istore #4
+  21 iload_2
+  22 bipush 28
+  24 irem
+  25 istore #5
+  27 iload_2
+  28 bipush 32
+  30 irem
+  31 istore #6
+  33 fload_1
+  34 fast_aaccess_0
+  35 fast_agetfield 27 <com/mpataki/Tensor4DBenchmark.tensor:Lcom/mpataki/Tensor4D;> 
+  38 iload_3
+  39 fast_iload #4
+  41 fast_iload2 #5
+  43 fast_iload #6
+  45 invokevirtual 32 <com/mpataki/Tensor4D.get(IIII)F> 
+  32   bci: 45   VirtualCallData    count(0) entries(1)
+                                    'com/mpataki/Tensor4D'(1301502 1.00)
+  48 fadd
+  49 fstore_1
+  50 iinc #2 1
+  53 goto 4
+  80   bci: 53   JumpData           taken(1301502) displacement(-80)
+  56 fload_1
+  57 freturn
+------------------------------------------------------------------------
+Total MDO size: 480 bytes
+
+
+Result "com.mpataki.Tensor4DBenchmark.accessTest":
+  284.649 ops/s
+
+
+# Run complete. Total time: 00:01:01
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                      Mode  Cnt    Score   Error  Units
+Tensor4DBenchmark.accessTest  thrpt    2  284.649          ops/s

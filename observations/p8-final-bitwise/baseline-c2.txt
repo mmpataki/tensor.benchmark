@@ -1,0 +1,231 @@
+============================= C2-compiled nmethod ==============================
+----------------------------------- Assembly -----------------------------------
+
+Compiled method (c2) 644  946       4       com.mpataki.Tensor4DBenchmark::realTest (58 bytes)
+ total in heap  [0x000073de34844588,0x000073de34844948] = 960
+ relocation     [0x000073de34844660,0x000073de34844680] = 32
+ main code      [0x000073de34844680,0x000073de34844910] = 656
+ stub code      [0x000073de34844910,0x000073de34844928] = 24
+ oops           [0x000073de34844928,0x000073de34844930] = 8
+ metadata       [0x000073de34844930,0x000073de34844948] = 24
+ immutable data [0x000073ddcc167100,0x000073ddcc1671e0] = 224
+ dependencies   [0x000073ddcc167100,0x000073ddcc167110] = 16
+ nul chk table  [0x000073ddcc167110,0x000073ddcc167128] = 24
+ scopes pcs     [0x000073ddcc167128,0x000073ddcc167178] = 80
+ scopes data    [0x000073ddcc167178,0x000073ddcc1671e0] = 104
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+add    %al,(%rax)
+[Instructions begin]
+  0x000073de34844680:   xchg   %ax,%ax
+[Entry Point]
+  # {method} {0x000073ddec95e080} 'realTest' '()F' in 'com/mpataki/Tensor4DBenchmark'
+  #           [sp+0x30]  (sp of caller)
+  0x000073de34844682:   mov    0x8(%rsi),%r10d
+  0x000073de34844686:   cmp    0x8(%rax),%r10d
+  0x000073de3484468a:   jne    0x000073de3444e060           ;   {runtime_call Shared Runtime ic_miss_blob}
+[Verified Entry Point]
+  0x000073de34844690:   mov    %eax,-0x14000(%rsp)
+  0x000073de34844697:   push   %rbp
+  0x000073de34844698:   sub    $0x20,%rsp
+  0x000073de3484469c:   cmpl   $0x0,0x20(%r15)
+  0x000073de348446a4:   jne    0x000073de34844902
+  0x000073de348446aa:   mov    %rsi,%rbp
+  0x000073de348446ad:   mov    0x1c(%rsi),%r9d
+  0x000073de348446b1:   mov    0x1c(%r9),%eax               ; implicit exception: dispatches to 0x000073de348448d9
+  0x000073de348446b5:   mov    0xc(%rax),%r10d              ; implicit exception: dispatches to 0x000073de348448d9
+  0x000073de348446b9:   vxorps %xmm0,%xmm0,%xmm0
+  0x000073de348446bd:   data16 xchg %ax,%ax
+  0x000073de348446c0:   test   %r10d,%r10d
+  0x000073de348446c3:   jbe    0x000073de34844848
+  0x000073de348446c9:   vaddss 0x10(%rax),%xmm0,%xmm0
+  0x000073de348446ce:   mov    0x14(%r9),%r8d
+  0x000073de348446d2:   mov    %r8d,%r11d
+  0x000073de348446d5:   imul   0x10(%r9),%r11d
+  0x000073de348446da:   mov    0x18(%r9),%ecx
+  0x000073de348446de:   imul   %ecx,%r11d
+  0x000073de348446e2:   imul   %ecx,%r8d
+  0x000073de348446e6:   mov    $0x1,%r9d
+  0x000073de348446ec:   jmp    0x000073de348447f7
+  0x000073de348446f1:   vmovq  %xmm1,%rbp
+  0x000073de348446f6:   mov    %r9d,%edx
+  0x000073de348446f9:   and    $0xffffffe0,%edx
+  0x000073de348446fc:   mov    %r9d,%edi
+  0x000073de348446ff:   sub    %edx,%edi
+  0x000073de34844701:   mov    %r9d,%ebx
+  0x000073de34844704:   and    $0xffffffc0,%ebx
+  0x000073de34844707:   mov    %r9d,%edx
+  0x000073de3484470a:   sub    %ebx,%edx
+  0x000073de3484470c:   imul   %r11d,%edx
+  0x000073de34844710:   mov    %r9d,%ebx
+  0x000073de34844713:   and    $0xfffffff0,%ebx
+  0x000073de34844716:   mov    %r9d,%esi
+  0x000073de34844719:   sub    %ebx,%esi
+  0x000073de3484471b:   imul   %r8d,%esi
+  0x000073de3484471f:   add    %esi,%edx
+  0x000073de34844721:   movslq %r9d,%rbx
+  0x000073de34844724:   imul   $0xffffffff92492493,%rbx,%r13
+  0x000073de3484472b:   mov    %r13,%rbx
+  0x000073de3484472e:   sar    $0x20,%rbx
+  0x000073de34844732:   mov    %ebx,%ebx
+  0x000073de34844734:   add    %r9d,%ebx
+  0x000073de34844737:   sar    $0x4,%ebx
+  0x000073de3484473a:   imul   $0x1c,%ebx,%ebx
+  0x000073de3484473d:   mov    %r9d,%esi
+  0x000073de34844740:   sub    %ebx,%esi
+  0x000073de34844742:   imul   %ecx,%esi
+  0x000073de34844745:   add    %esi,%edx
+  0x000073de34844747:   add    %edi,%edx
+  0x000073de34844749:   cmp    %r10d,%edx
+  0x000073de3484474c:   jae    0x000073de34844818
+  0x000073de34844752:   vmovq  %rbp,%xmm1
+  0x000073de34844757:   vaddss 0x10(%rax,%rdx,4),%xmm0,%xmm0
+  0x000073de3484475d:   add    $0xffffffff92492493,%r13
+  0x000073de34844764:   sar    $0x20,%r13
+  0x000073de34844768:   mov    %r13d,%edi
+  0x000073de3484476b:   mov    %r9d,%ebx
+  0x000073de3484476e:   inc    %ebx
+  0x000073de34844770:   add    %ebx,%edi
+  0x000073de34844772:   mov    %ebx,%edx
+  0x000073de34844774:   and    $0xffffffe0,%edx
+  0x000073de34844777:   mov    %r9d,%ebp
+  0x000073de3484477a:   sub    %edx,%ebp
+  0x000073de3484477c:   sar    $0x4,%edi
+  0x000073de3484477f:   mov    %ebx,%esi
+  0x000073de34844781:   and    $0xfffffff0,%esi
+  0x000073de34844784:   mov    %r9d,%edx
+  0x000073de34844787:   sub    %esi,%edx
+  0x000073de34844789:   imul   $0x1c,%edi,%edi              ;   {no_reloc}
+  0x000073de3484478c:   mov    %r9d,%r13d
+  0x000073de3484478f:   sub    %edi,%r13d
+  0x000073de34844792:   inc    %edx
+  0x000073de34844794:   imul   %r8d,%edx
+  0x000073de34844798:   inc    %r13d
+  0x000073de3484479b:   imul   %ecx,%r13d
+  0x000073de3484479f:   mov    %ebx,%esi
+  0x000073de348447a1:   and    $0xffffffc0,%esi
+  0x000073de348447a4:   mov    %r9d,%edi
+  0x000073de348447a7:   sub    %esi,%edi
+  0x000073de348447a9:   inc    %edi
+  0x000073de348447ab:   imul   %r11d,%edi
+  0x000073de348447af:   add    %edx,%edi
+  0x000073de348447b1:   add    %r13d,%edi
+  0x000073de348447b4:   add    %ebp,%edi
+  0x000073de348447b6:   mov    %edi,%edx
+  0x000073de348447b8:   inc    %edx
+  0x000073de348447ba:   nopw   0x0(%rax,%rax,1)
+  0x000073de348447c0:   cmp    %r10d,%edx
+  0x000073de348447c3:   jae    0x000073de3484481d
+  0x000073de348447c9:   movslq %edi,%rbx
+  0x000073de348447cc:   vaddss 0x14(%rax,%rbx,4),%xmm0,%xmm0
+  0x000073de348447d2:   add    $0x2,%r9d
+  0x000073de348447d6:   cmp    %r14d,%r9d
+  0x000073de348447d9:   jl     0x000073de348446f1
+  0x000073de348447df:   mov    0x30(%r15),%rbx              ; ImmutableOopMap {rax=NarrowOop xmm1=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@53 (line 21)
+  0x000073de348447e3:   test   %eax,(%rbx)                  ;   {poll}
+  0x000073de348447e5:   cmp    $0xf423f,%r9d
+  0x000073de348447ec:   jge    0x000073de3484484e
+  0x000073de348447f2:   vmovq  %xmm1,%rbp
+  0x000073de348447f7:   mov    $0xf423f,%r14d
+  0x000073de348447fd:   sub    %r9d,%r14d
+  0x000073de34844800:   cmp    $0x7d0,%r14d
+  0x000073de34844807:   mov    $0x7d0,%ebx
+  0x000073de3484480c:   cmova  %ebx,%r14d
+  0x000073de34844810:   add    %r9d,%r14d
+  0x000073de34844813:   jmp    0x000073de348446f6
+  0x000073de34844818:   mov    %r9d,%ebx
+  0x000073de3484481b:   jmp    0x000073de34844822
+  0x000073de3484481d:   vmovq  %xmm1,%rbp
+  0x000073de34844822:   vmovss %xmm0,(%rsp)
+  0x000073de34844827:   mov    $0xffffffe4,%esi
+  0x000073de3484482c:   mov    %ebx,0x4(%rsp)
+  0x000073de34844830:   mov    %eax,0x8(%rsp)
+  0x000073de34844834:   mov    %edx,0xc(%rsp)
+  0x000073de34844838:   data16 xchg %ax,%ax
+  0x000073de3484483b:   call   0x000073de345141e0           ; ImmutableOopMap {rbp=Oop [8]=NarrowOop }
+                                                            ;*faload {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - com.mpataki.Tensor4D::get@44 (line 20)
+                                                            ; - com.mpataki.Tensor4DBenchmark::realTest@45 (line 26)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000073de34844840:   nopl   0x10002b8(%rax,%rax,1)       ;   {post_call_nop}
+  0x000073de34844848:   xor    %ebx,%ebx
+  0x000073de3484484a:   xor    %edx,%edx
+  0x000073de3484484c:   jmp    0x000073de34844822
+  0x000073de3484484e:   mov    %r9d,%edi
+  0x000073de34844851:   and    $0xffffffe0,%edi
+  0x000073de34844854:   mov    %r9d,%esi
+  0x000073de34844857:   sub    %edi,%esi
+  0x000073de34844859:   mov    %r9d,%ebx
+  0x000073de3484485c:   and    $0xffffffc0,%ebx
+  0x000073de3484485f:   mov    %r9d,%edx
+  0x000073de34844862:   sub    %ebx,%edx
+  0x000073de34844864:   imul   %r11d,%edx
+  0x000073de34844868:   mov    %r9d,%ebx
+  0x000073de3484486b:   and    $0xfffffff0,%ebx
+  0x000073de3484486e:   mov    %r9d,%ebp
+  0x000073de34844871:   sub    %ebx,%ebp
+  0x000073de34844873:   imul   %r8d,%ebp
+  0x000073de34844877:   add    %ebp,%edx
+  0x000073de34844879:   movslq %r9d,%rbx
+  0x000073de3484487c:   imul   $0xffffffff92492493,%rbx,%rbx
+  0x000073de34844883:   sar    $0x20,%rbx
+  0x000073de34844887:   mov    %ebx,%edi
+  0x000073de34844889:   add    %r9d,%edi
+  0x000073de3484488c:   sar    $0x4,%edi
+  0x000073de3484488f:   imul   $0x1c,%edi,%ebx
+  0x000073de34844892:   mov    %r9d,%edi
+  0x000073de34844895:   sub    %ebx,%edi
+  0x000073de34844897:   imul   %ecx,%edi
+  0x000073de3484489a:   add    %edi,%edx
+  0x000073de3484489c:   add    %esi,%edx
+  0x000073de3484489e:   xchg   %ax,%ax
+  0x000073de348448a0:   cmp    %r10d,%edx
+  0x000073de348448a3:   jae    0x000073de348448c7
+  0x000073de348448a5:   vaddss 0x10(%rax,%rdx,4),%xmm0,%xmm0
+  0x000073de348448ab:   inc    %r9d
+  0x000073de348448ae:   cmp    $0xf4240,%r9d
+  0x000073de348448b5:   jl     0x000073de3484484e
+  0x000073de348448b7:   add    $0x20,%rsp
+  0x000073de348448bb:   pop    %rbp
+  0x000073de348448bc:   cmp    0x28(%r15),%rsp              ;   {poll_return}
+  0x000073de348448c0:   ja     0x000073de348448ec
+  0x000073de348448c6:   ret
+  0x000073de348448c7:   vmovss %xmm0,(%rsp)
+  0x000073de348448cc:   mov    %r9d,%ebx
+  0x000073de348448cf:   vmovq  %xmm1,%rbp
+  0x000073de348448d4:   jmp    0x000073de34844827
+  0x000073de348448d9:   mov    $0xffffff76,%esi
+  0x000073de348448de:   nop
+  0x000073de348448df:   call   0x000073de345141e0           ; ImmutableOopMap {rbp=Oop }
+                                                            ;*if_icmpge {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) com.mpataki.Tensor4DBenchmark::realTest@7 (line 21)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000073de348448e4:   nopl   0x200035c(%rax,%rax,1)       ;   {post_call_nop}
+  0x000073de348448ec:   movabs $0x73de348448bc,%r10         ;   {internal_word}
+  0x000073de348448f6:   mov    %r10,0x460(%r15)
+  0x000073de348448fd:   jmp    0x000073de344558e0           ;   {runtime_call SafepointBlob}
+  0x000073de34844902:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (final stubs)}
+  0x000073de34844907:   jmp    0x000073de348446aa
+  0x000073de3484490c:   hlt
+  0x000073de3484490d:   hlt
+  0x000073de3484490e:   hlt
+  0x000073de3484490f:   hlt
+[Exception Handler]
+  0x000073de34844910:   jmp    0x000073de345144e0           ;   {no_reloc}
+[Deopt Handler Code]
+  0x000073de34844915:   call   0x000073de3484491a
+  0x000073de3484491a:   subq   $0x5,(%rsp)
+  0x000073de3484491f:   jmp    0x000073de34454e80           ;   {runtime_call DeoptimizationBlob}
+  0x000073de34844924:   hlt
+  0x000073de34844925:   hlt
+  0x000073de34844926:   hlt
+  0x000073de34844927:   hlt
+--------------------------------------------------------------------------------
+[/Disassembly]
